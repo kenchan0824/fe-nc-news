@@ -1,3 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +41,29 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* -- Header -- */
+h1 {
+  margin: 20px;
+}
+
+/* -- Article Card -- */
+.article-card {
+  display: flex;
+}
+
+.article-card .article-box{
+  display: inline-block;
+  text-align: left;
+  margin: 10px;
+}
+
+.article-card img{
+  width: 100px;
+}
+
+.article-card p{
+  display: inline-block;
+  padding: 0.5em 1em 0 0;
 }
