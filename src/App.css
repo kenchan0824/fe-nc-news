@@ -6,6 +6,8 @@
 
 .App {
   text-align: center;
+  max-width: 600px;
+  margin: auto;
 }
 
 .App-logo {
@@ -61,6 +63,10 @@ a:active {
   text-decoration: none;
 }
 
+p {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 /* -- Header -- */
 .banner {
   display: flex;
@@ -72,7 +78,6 @@ a:active {
   margin-top: 10px;
   margin-bottom: 10px;
   margin-right: 20px;
-  padding: 5px;
 }
 
 .user-box {
@@ -85,25 +90,26 @@ a:active {
 }
 
 .user-box.welcome {
+  font-size: 12px;
   text-align: left;
 }
 
 .user-box img {
-  width: 40px;
+  width: 30px;
 }
 
 h1 {
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 20px;
-  /* font-size: 1.8rem; */
+  font-size: 1.6rem;
   text-align: left;
 }
 
 .nav-bar {
-  margin: 0 20px;
+  margin: 0 20px 20px 20px;
   text-align: left;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   padding: 5px 0;
   border-top: 1px solid;
@@ -111,15 +117,17 @@ h1 {
 }
 
 /* -- Article Card -- */
+
 .article-card {
   display: flex;
   align-items: top;
-  margin: 20px;
+  margin: 10px 20px;
 }
 
 .article-card img {
   margin-right: 20px;
-  width: 100px;
+  width: 80px;
+  height: 80px;
 }
 
 .article-card .article-box{
@@ -127,18 +135,18 @@ h1 {
   width: 100%;
 }
 
-.subtitle {
+.article-card h3 {
+  font-size: 14px;
+}
+
+.article-box .subtitle {
   display: flex;
   justify-content: left;
   font-size: 14px;
 }
 
-.subtitle span {
-  margin-right: 1em;
-}
-
-.subtitle .datetime {
-  text-align: right;
+.subtitle .author {
+  margin-right: 0.5em;
 }
 
 /* -- Article Detail -- */
@@ -149,7 +157,7 @@ h1 {
 }
 
 .article-detail img {
-  width: 400px;
+  width: 80%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -157,32 +165,33 @@ h1 {
   margin-bottom: 30px;
 }
 
-.article-detail p {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-.detail-item {
+.article-detail .detail-item {
   text-align: left;
   margin: 0.5em 0;
 }
 
-.detail-item.subtitle {
+.article-detail .subtitle {
   display: flex;
 }
 
 .subtitle .flex-box{
-  margin-right: 1em;
+  margin-right: 0.5em;
 }
 
-.detail-item.content {
+.article-detail .content {
   line-height: 1.4em;
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 20px;
 }
 
-.detail-item button {
+.article-detail .like {
+  font-size: 14px;
+}
+
+.like button {
   margin-right: 10px;
   padding: 5px;
+  border-radius: 10px;
 }
 
 .like .like-box {
@@ -219,6 +228,7 @@ h1 {
 }
 
 /* -- Comment Section -- */
+
 .comment-header {
   text-align: left;
   margin: 20px 0;
@@ -227,7 +237,8 @@ h1 {
 .comment-form {
   border: grey solid;
   border-radius: 10px;
-  padding: 10px;
+  padding: 10px 10px;
+  margin: 10px 0;
 }
 
 .comment-form form {
@@ -238,13 +249,14 @@ h1 {
 .comment-input {
   flex-grow: 1;
   padding: 5px;
+  margin: 0 10px;
   box-sizing: border-box;
 }
 
 .comment-button {
+  margin-left: 10px;
   padding: 0.5em 1em;
   border-radius: 10px;
-  margin: 10px 0 0 10px;
 }
 
 .comment-form .tooltip {
@@ -256,18 +268,24 @@ h1 {
   top: -0.5em;
   left: 1em;
 }
+
 /* -- Comment List -- */
+
 .comment-card {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   flex-wrap: wrap;
-  border: gray solid;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 20px 0;
+  margin: 10px 0;
+}
+
+.comment-card.me {
+  align-items: flex-end;
 }
 
 .comment-card .comment-box {
-  margin-right: 10px;
+  padding: 10px;
+  font-size: 16px;
 }
 
 .comment-card .comment-author {
@@ -275,7 +293,19 @@ h1 {
 }
 
 .comment-card .comment-content {
-  width: 250px;
+  width: max(80%, 300px);
   text-align: left;
+  border: gray solid;
+  border-radius: 20px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.comment-content p {
   flex-grow: 1;
+  margin: auto;
+}
+
+.comment-content .comment-button {
+  padding: 5px 10px;
 }
