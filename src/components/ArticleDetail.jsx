@@ -7,6 +7,7 @@ function ArticleDetail() {
   const [article, setArticle] = useState({});
   const [loading, setLoading] = useState(true);
   const [voted, setVoted] = useState(false);
+  const [error, setError] = useState(false);
   
   const { article_id } = useParams();
   
@@ -25,7 +26,15 @@ function ArticleDetail() {
     setArticle((current) => {
       return {...current, votes: current.votes + incVote};
     });
-    voteArticle(article_id, incVote);
+    setError(false);
+    voteArticle(article_id, incVote)
+      .catch(() => {
+        setError(true);
+        setVoted((current) => !current);
+        setArticle((current) => {
+          return {...current, votes: current.votes - incVote};
+        });
+      });
   }
 
   if (loading) {
@@ -42,8 +51,15 @@ function ArticleDetail() {
       <img src={article.article_img_url} alt={article.title} />
       <p className="detail-item content">{article.body}</p>
       <div className="detail-item like">
-        <button onClick={handleVote}>{voted?<span>❤️</span>:<span>🤍</span>}</button> 
-        <span>{article.votes} likes</span>
+        <button className="like-box" onClick={handleVote}>{voted?<p>❤️</p>:<p>🤍</p>}</button> 
+        {
+          error && 
+          <span className="like-box tooltip">
+            <span>❗</span> 
+            <span className="tooltip-text">Sorry, cannot process votes at the moment!</span>
+          </span>
+        }
+        <span className="like-box">{article.votes} likes</span>
       </div>
       <CommentSection article_id={article.article_id} />
     </section>
