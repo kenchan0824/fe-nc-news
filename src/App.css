@@ -116,7 +116,6 @@ h1 {
 
 .article-detail {
   display: block;
-  text-align: left;
   margin: 20px;
 }
 
@@ -130,6 +129,7 @@ h1 {
 }
 
 .detail-item {
+  text-align: left;
   margin: 0.5em 0;
 }
 
@@ -148,8 +148,9 @@ h1 {
 }
 
 /* -- Comment Section -- */
-.comment-section {
-  margin-top: 20px;
+.comment-header {
+  text-align: left;
+  margin: 20px 0;
 }
 
 /* -- Comment List -- */

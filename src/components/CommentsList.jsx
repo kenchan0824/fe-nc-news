@@ -19,6 +19,10 @@ function CommentsList({ article_id }) {
     return <div className="system">loading...</div>;
   }
 
+  if (comments.length === 0) {
+    return <div className="system">no comments, be the first to comment now!</div>;
+  }
+
   return (
     <div>
       {
