@@ -5,6 +5,7 @@ import { postComment } from "../api";
 function CommentForm({ user, article_id, setComments }) {
   const [comment, setComment] = useState("");
   const [error, setError] = useState(false);
+  const [warn, setWarn] = useState(false);
 
   function handleChange(event) {
     setComment(event.target.value);
@@ -13,14 +14,15 @@ function CommentForm({ user, article_id, setComments }) {
   function handleSubmit(event) {
     event.preventDefault();
     const body = event.target[0].value;
-    if (!body) {
-      return alert("You must type somethings!")
+    setError(false);
+    setWarn(false);
+    if (!body.trim()) {
+      return setWarn(true);
     }
     setComment("");
     setComments((current) => {
       return [{body, author: user.username}, ...current]
     });
-    setError(false);
     postComment(article_id, body, user.username)
       .then((newComment) => {
         setComments((current) => {
@@ -46,6 +48,13 @@ function CommentForm({ user, article_id, setComments }) {
         />
         <button className="comment-button">Post</button>
       </form>
+      {
+        warn && 
+        <div className="tooltip">
+          <span>⚠</span> 
+          <span className="tooltip-text">You must type somethings</span>
+        </div>
+      }
       {
         error && 
         <div className="tooltip">
