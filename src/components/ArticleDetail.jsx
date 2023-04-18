@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
-import { getArticleById } from "../api";
+import { getArticleById, voteArticle } from "../api";
 import CommentSection from "./CommentSection";
 
 function ArticleDetail() {
   const [article, setArticle] = useState({});
   const [loading, setLoading] = useState(true);
+  const [voted, setVoted] = useState(false);
+  const [error, setError] = useState(false);
   
   const { article_id } = useParams();
   
@@ -18,6 +20,23 @@ function ArticleDetail() {
       });
     }, []);
   
+  function handleVote(event) {
+    const incVote = voted ? -1 : 1;
+    setVoted((current) => !current);
+    setArticle((current) => {
+      return {...current, votes: current.votes + incVote};
+    });
+    setError(false);
+    voteArticle(article_id, incVote)
+      .catch(() => {
+        setError(true);
+        setVoted((current) => !current);
+        setArticle((current) => {
+          return {...current, votes: current.votes - incVote};
+        });
+      });
+  }
+
   if (loading) {
     return <div className="system">loading...</div>;
   }
@@ -31,7 +50,17 @@ function ArticleDetail() {
       </p>
       <img src={article.article_img_url} alt={article.title} />
       <p className="detail-item content">{article.body}</p>
-      <div className="detail-item">❤️ {article.votes}</div>
+      <div className="detail-item like">
+        <button className="like-box" onClick={handleVote}>{voted?<p>❤️</p>:<p>🤍</p>}</button> 
+        {
+          error && 
+          <span className="like-box tooltip">
+            <span>❗</span> 
+            <span className="tooltip-text">Sorry, cannot process votes at the moment!</span>
+          </span>
+        }
+        <span className="like-box">{article.votes} likes</span>
+      </div>
       <CommentSection article_id={article.article_id} />
     </section>
   );
