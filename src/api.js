@@ -13,3 +13,8 @@ export async function getArticleById(article_id) {
   const {data} = await newsApi.get(`/articles/${article_id}`);
   return data.article;
 };
+
+export async function getCommentsByArticle(article_id) {
+  const {data} = await newsApi.get(`/articles/${article_id}/comments`);
+  return data.comments;
+};
