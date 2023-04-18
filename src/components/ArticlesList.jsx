@@ -15,14 +15,16 @@ function ArticleList() {
   }, []);
 
   if (loading) {
-    return "loading ...";
+    return "loading...";
   }
-  
+
   return (
     <div>
-      {articles.map((article) => {
-        return <ArticleCard key={article.article_id} article={article} />;
-      })}
+      {
+        articles.map((article) => 
+          <ArticleCard key={article.article_id} article={article} />
+        )
+      }
     </div>
   );
 }
