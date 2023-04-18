@@ -15,9 +15,9 @@ function CommentForm({ user, article_id, setComments }) {
     if (!body) {
       return alert("You must type somethings!")
     }
+    setComment("");
     postComment(article_id, body, user.username)
       .then((newComment) => {
-        setComment("");
         setComments((current) => {
           return [newComment, ...current]
         });
