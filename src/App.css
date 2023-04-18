@@ -133,18 +133,23 @@ h1 {
   margin: 0.5em 0;
 }
 
-.detail-item .subtitle {
+.detail-item.subtitle {
   display: flex;
 }
 
 .subtitle .flex-box{
-  display: inline-block;
   margin-right: 1em;
 }
 
-.content {
+.detail-item.content {
   line-height: 1.4em;
   font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.detail-item button {
+  margin-right: 10px;
+  padding: 5px;
 }
 
 /* -- Comment Section -- */
@@ -160,7 +165,7 @@ h1 {
   border: gray solid;
   border-radius: 20px;
   padding: 10px;
-  margin-top: 10px;
+  margin: 20px 0;
 }
 
 .comment-card .comment-box {
@@ -172,6 +177,7 @@ h1 {
 }
 
 .comment-card .comment-content {
-  width: 200px;
+  width: 250px;
+  text-align: left;
   flex-grow: 1;
 }

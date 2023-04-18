@@ -18,3 +18,10 @@ export async function getCommentsByArticle(article_id) {
   const {data} = await newsApi.get(`/articles/${article_id}/comments`);
   return data.comments;
 };
+
+export async function voteArticle(article_id, votes) {
+  console.log(article_id, votes);
+  const params = {inc_votes: votes}
+  const {data} = await newsApi.patch(`/articles/${article_id}`, params);
+  return data.article;
+}
