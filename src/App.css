@@ -225,11 +225,14 @@ h1 {
 }
 
 .comment-form {
-  display: flex;
-  align-items: flex-end;
   border: grey solid;
   border-radius: 10px;
   padding: 10px;
+}
+
+.comment-form form {
+  display: flex;
+  align-items: flex-end;
 }
 
 .comment-input {
@@ -244,6 +247,14 @@ h1 {
   margin: 10px 0 0 10px;
 }
 
+.comment-form .tooltip {
+  display: block;
+  text-align: left;
+}
+
+.comment-form .tooltip-text {
+  left: 1em;
+}
 /* -- Comment List -- */
 .comment-card {
   display: flex;
