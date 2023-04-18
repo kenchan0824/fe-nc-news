@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { getArticleById } from "../api";
+import CommentSection from "./CommentSection";
 
 function ArticleDetail() {
   const [article, setArticle] = useState({});
@@ -18,7 +19,7 @@ function ArticleDetail() {
     }, []);
   
   if (loading) {
-    return "loading ...";
+    return <div className="system">loading...</div>;
   }
   
   return (
@@ -31,6 +32,7 @@ function ArticleDetail() {
       <img src={article.article_img_url} alt={article.title} />
       <p className="detail-item content">{article.body}</p>
       <div className="detail-item">❤️ {article.votes}</div>
+      <CommentSection article_id={article.article_id} />
     </section>
   );
 

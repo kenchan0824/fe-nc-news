@@ -15,7 +15,7 @@ function ArticleList() {
   }, []);
 
   if (loading) {
-    return "loading...";
+    return <div className="system">loading...</div>;
   }
 
   return (

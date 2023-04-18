@@ -2,7 +2,6 @@
   padding: 0;
   margin: 0;
   box-sizing: content-box;
-  font-size: 16px;
 }
 
 .App {
@@ -44,6 +43,8 @@
   }
 }
 
+/* --- Custom --- */
+
 a:link {
   text-decoration: none;
 }
@@ -65,10 +66,11 @@ p {
 }
 
 /* -- Header -- */
+
 h1 {
   margin: 0.8em;
   margin-left: 20px;
-  font-size: 1.8rem;
+  /* font-size: 1.8rem; */
   text-align: left;
 }
 
@@ -99,6 +101,7 @@ h1 {
 .subtitle {
   display: flex;
   justify-content: left;
+  font-size: 14px;
 }
 
 .subtitle span {
@@ -110,9 +113,9 @@ h1 {
 }
 
 /* -- Article Detail -- */
+
 .article-detail {
   display: block;
-  text-align: left;
   margin: 20px;
 }
 
@@ -126,6 +129,7 @@ h1 {
 }
 
 .detail-item {
+  text-align: left;
   margin: 0.5em 0;
 }
 
@@ -141,4 +145,33 @@ h1 {
 .content {
   line-height: 1.4em;
   font-size: 18px;
+}
+
+/* -- Comment Section -- */
+.comment-header {
+  text-align: left;
+  margin: 20px 0;
+}
+
+/* -- Comment List -- */
+.comment-card {
+  display: flex;
+  flex-wrap: wrap;
+  border: gray solid;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.comment-card .comment-box {
+  margin-right: 10px;
+}
+
+.comment-card .comment-author {
+  font-weight: bold;
+}
+
+.comment-card .comment-content {
+  width: 200px;
+  flex-grow: 1;
 }
