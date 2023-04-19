@@ -2,7 +2,7 @@ function CommentCard({ user, comment }) {
   if (comment.author === user.username) {
     return (
       <div className="comment-card me" >
-        <p className="comment-box comment-author">me</p>
+        <div className="comment-box comment-author">me</div>
         <div className="comment-box comment-content">
           <p>
             {comment.body}
@@ -14,7 +14,7 @@ function CommentCard({ user, comment }) {
   } else {
     return (
       <div className="comment-card">
-        <p className="comment-box comment-author">{comment.author}</p>
+        <div className="comment-box comment-author">{comment.author}</div>
         <p className="comment-box comment-content">{comment.body}</p> 
       </div>
     );

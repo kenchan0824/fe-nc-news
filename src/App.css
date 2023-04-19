@@ -90,12 +90,12 @@ p {
 }
 
 .user-box.welcome {
-  font-size: 12px;
+  font-size: 14px;
   text-align: left;
 }
 
 .user-box img {
-  width: 30px;
+  width: 40px;
 }
 
 h1 {
@@ -109,7 +109,7 @@ h1 {
 .nav-bar {
   margin: 20px;
   text-align: left;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   padding: 5px 0;
   border-top: 1px solid;
@@ -175,6 +175,7 @@ h1 {
 
 .article-detail .subtitle {
   display: flex;
+  font-size: 14px;
 }
 
 .subtitle .flex-box{
@@ -183,7 +184,7 @@ h1 {
 
 .article-detail .content {
   line-height: 1.4em;
-  font-size: 16px;
+  font-size: 17px;
   margin-bottom: 20px;
 }
 
