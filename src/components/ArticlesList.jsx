@@ -23,6 +23,19 @@ function ArticleList() {
 
   return (
     <div className="article-list">
+      <div className="control-bar">
+        <label className="control-item">sort by</label>
+        <select className="control-item">
+          <option>date</option>
+          <option>title</option>
+          <option>author</option>
+          <option>likes</option>
+        </select>
+        <select className="control-item">
+          <option>asc</option>
+          <option>des</option>
+        </select>
+      </div>
       {
         articles.map((article) => 
           <ArticleCard key={article.article_id} article={article} />

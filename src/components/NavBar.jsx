@@ -16,12 +16,14 @@ function NavBar() {
     setCurrTopic(event.target.innerText);
   }
 
+  const back = currTopic ? `/topics/${currTopic}/articles` : "/";
+
   return (
     <h2 className="nav-bar">
       {
         pathname.startsWith('/articles/') ?
         <div className="nav-menu back">
-          <Link class="menu-item" to='/'>
+          <Link class="menu-item" to={back}>
             &lt; back
           </Link>
         </div>

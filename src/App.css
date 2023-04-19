@@ -144,7 +144,23 @@ h1 {
   ;
 }
 
-/* -- Article Card -- */
+/* -- Article List -- */
+.control-bar {
+  text-align: right;
+  margin-inline: 20px;
+  margin-bottom: 20px;
+}
+
+.control-bar .control-item {
+  font-size: 14px;
+  margin-inline: 2px;
+}
+
+.control-bar label.control-item {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
 .article-list {
   margin: 20px 0 ;
 }
@@ -163,7 +179,7 @@ h1 {
 
 .article-card .article-box{
   text-align: left;
-  width: 100%;
+  width: auto;
 }
 
 .article-card h3 {
