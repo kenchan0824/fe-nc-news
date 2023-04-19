@@ -1,7 +1,7 @@
 function Header() {
   return (
     <div>
-      <h1>Today's News</h1>
+      <h1>Northcoders News</h1>
     </div>
   );
 }
