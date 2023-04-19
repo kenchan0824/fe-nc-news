@@ -6,16 +6,29 @@ import ArticleCard from "./ArticleCard";
 function ArticleList() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [sort, setSort] = useState({
+    sortBy: "created_at",
+    order: "desc"
+  });
+  const [order, setOrder] = useState("desc");
   
   const { topic_slug } = useParams();
 
+  function handleChange(event) {
+    const field = event.target.id;
+    const value = event.target.value;
+    setSort((current) => {
+      return {...current, [field]: value}
+    });
+  }
+
   useEffect(() => {
     setLoading(true);
-    getArticles(topic_slug).then((articles) => {
+    getArticles(topic_slug, sort.sortBy, sort.order).then((articles) => {
       setArticles(articles);
       setLoading(false);
     });
-  }, [topic_slug]);
+  }, [topic_slug, sort]);
 
   if (loading) {
     return <div className="system">loading...</div>;
@@ -24,16 +37,16 @@ function ArticleList() {
   return (
     <div className="article-list grid-container">
       <div className="control-bar grid-item">
-        <label className="control-item">sort by</label>
-        <select className="control-item">
-          <option>date</option>
-          <option>title</option>
-          <option>author</option>
-          <option>likes</option>
+        <label className="control-item" htmlFor="sortBy">sort by</label>
+        <select className="control-item" id="sortBy" value={sort.sortBy} onChange={handleChange}>
+          <option value="created_at">date</option>
+          <option value="votes">likes</option>
+          <option value="comment_count">comments</option>
+          <option value="author">author</option>
         </select>
-        <select className="control-item">
-          <option>asc</option>
-          <option>des</option>
+        <select className="control-item" id="order" value={sort.order} onChange={handleChange}>
+          <option value="asc">asc</option>
+          <option value="desc">desc</option>
         </select>
       </div>
       {

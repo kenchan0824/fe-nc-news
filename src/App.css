@@ -154,7 +154,7 @@ h1 {
 
 .control-bar {
   text-align: right;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .control-bar .control-item {
@@ -183,17 +183,13 @@ h1 {
   height: 80px;
 }
 
-.article-card .article-box{
+.article-card .article-box {
   text-align: left;
   width: auto;
 }
 
-.article-card h3 {
-  font-size: 14px;
+.article-box .article-item {
   margin-bottom: 5px;
-}
-
-.article-box .subtitle {
   display: block;
   justify-content: left;
   font-size: 14px;
@@ -201,7 +197,12 @@ h1 {
 
 .subtitle span {
   display: inline-block;
-  margin-right: 5px;
+  margin-right: 1em;
+}
+
+.like span {
+  display: inline-block;
+  margin-right: 1em;
 }
 
 /* -- Article Detail -- */

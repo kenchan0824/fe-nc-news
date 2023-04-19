@@ -6,11 +6,10 @@ function NavBar() {
   const [allTopics, setAllTopics] = useState([]);
   const [currTopic, setCurrTopic] = useState("");
   const { pathname } = useLocation();
-  
+
   useEffect(() => {
-    getTopics()
-      .then(topics => setAllTopics(topics));
-  }, [])
+    getTopics().then((topics) => setAllTopics(topics));
+  }, []);
 
   function handleClick(event) {
     setCurrTopic(event.target.innerText);
@@ -20,44 +19,41 @@ function NavBar() {
 
   return (
     <h2 className="nav-bar">
-      {
-        pathname.startsWith('/articles/') ?
+      {pathname.startsWith("/articles/") ? (
         <div className="nav-menu back">
           <Link class="menu-item" to={back}>
             &lt; back
           </Link>
         </div>
-        :
-          <div className="nav-menu">
-            {
-              pathname === '/'
-              ?
-              <span className="menu-item selected">home</span>
-              :
-              <Link className="menu-item" to="/" onClick={() => setCurrTopic("")} >
-                home
-              </Link> 
-            }
-            {
-              allTopics.map((topic) => {
-                  return (
-                    <span key={topic.slug}>
-                      <span className="menu-item">|</span>
-                      {
-                        currTopic === topic.slug
-                        ?
-                        <span className="menu-item selected">{topic.slug}</span>
-                        :
-                        <Link className="menu-item" to={`/topics/${topic.slug}/articles`} onClick={handleClick}>
-                          {topic.slug}
-                        </Link>
-                      }
-                    </span>
-                  );
-              })
-            }
-          </div>
-      }
+      ) : (
+        <div className="nav-menu">
+          {pathname === "/" ? (
+            <span className="menu-item selected">home</span>
+          ) : (
+            <Link className="menu-item" to="/" onClick={() => setCurrTopic("")}>
+              home
+            </Link>
+          )}
+          {allTopics.map((topic) => {
+            return (
+              <span key={topic.slug}>
+                <span className="menu-item">|</span>
+                {currTopic === topic.slug ? (
+                  <span className="menu-item selected">{topic.slug}</span>
+                ) : (
+                  <Link
+                    className="menu-item"
+                    to={`/topics/${topic.slug}/articles`}
+                    onClick={handleClick}
+                  >
+                    {topic.slug}
+                  </Link>
+                )}
+              </span>
+            );
+          })}
+        </div>
+      )}
     </h2>
   );
 }

@@ -5,13 +5,17 @@ function ArticleCard({ article }) {
     <section className="article-card grid-item">
       <img src={article.article_img_url} alt={article.title} />
       <div className="article-box">
-        <Link to={`/articles/${article.article_id}`}>
+        <Link className="article-item" to={`/articles/${article.article_id}`}>
           <h3>{article.title}</h3>
         </Link>
-        <p className="subtitle">
+        <p className="article-item subtitle">
           <span className="author"><b>{article.author}</b></span>
           <span className="datetime">{new Date(article.created_at).toDateString()}</span>
         </p>
+        <div className="article-item like">
+          <span><b>{article.comment_count}</b> comments</span>
+          <span>❤️ {article.votes}</span>
+        </div>
       </div>
     </section>
   );
