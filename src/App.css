@@ -6,6 +6,8 @@
 
 .App {
   text-align: center;
+  max-width: 500px;
+  margin: auto;
 }
 
 .App-logo {
@@ -66,31 +68,69 @@ p {
 }
 
 /* -- Header -- */
+.banner {
+  display: flex;
+}
+
+.user-profile {
+  flex-grow: 1;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+
+.user-box {
+  margin-left: 10px;
+  text-align:right;
+}
+
+.user-box.dummy {
+  flex-grow: 1;  
+}
+
+.user-box.welcome {
+  font-size: 14px;
+  text-align: left;
+}
+
+.user-box img {
+  width: 40px;
+}
 
 h1 {
-  margin: 0.8em;
+  margin-top: 20px;
+  margin-bottom: 10px;
   margin-left: 20px;
-  /* font-size: 1.8rem; */
+  font-size: 1.4rem;
   text-align: left;
 }
 
 .nav-bar {
-  margin-left: 20px;
+  margin: 10px 20px 20px 20px;
   text-align: left;
   font-size: 16px;
   font-weight: bold;
+  padding: 5px 0;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
 }
 
 /* -- Article Card -- */
+.article-list {
+  margin: 20px 0 ;
+}
+
 .article-card {
   display: flex;
   align-items: top;
-  margin: 20px;
+  margin: 10px 20px;
 }
 
 .article-card img {
   margin-right: 20px;
-  width: 100px;
+  width: 80px;
+  height: 80px;
 }
 
 .article-card .article-box{
@@ -98,18 +138,18 @@ h1 {
   width: 100%;
 }
 
-.subtitle {
+.article-card h3 {
+  font-size: 14px;
+}
+
+.article-box .subtitle {
   display: flex;
   justify-content: left;
   font-size: 14px;
 }
 
-.subtitle span {
-  margin-right: 1em;
-}
-
-.subtitle .datetime {
-  text-align: right;
+.subtitle .author {
+  margin-right: 0.5em;
 }
 
 /* -- Article Detail -- */
@@ -120,7 +160,7 @@ h1 {
 }
 
 .article-detail img {
-  width: 400px;
+  width: 80%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -128,28 +168,35 @@ h1 {
   margin-bottom: 30px;
 }
 
-.detail-item {
+.article-detail .detail-item {
   text-align: left;
   margin: 0.5em 0;
 }
 
-.detail-item.subtitle {
+.article-detail .subtitle {
   display: flex;
+  font-size: 14px;
 }
 
 .subtitle .flex-box{
-  margin-right: 1em;
+  margin-right: 0.5em;
 }
 
-.detail-item.content {
+.article-detail .content {
   line-height: 1.4em;
-  font-size: 18px;
+  font-size: 17px;
   margin-bottom: 20px;
 }
 
-.detail-item button {
+.article-detail .like {
+  font-size: 14px;
+}
+
+.like button {
   margin-right: 10px;
   padding: 5px;
+  border: 0.5px solid;
+  border-radius: 10px;
 }
 
 .like .like-box {
@@ -186,31 +233,93 @@ h1 {
 }
 
 /* -- Comment Section -- */
+
 .comment-header {
   text-align: left;
   margin: 20px 0;
 }
 
+.comment-form {
+  border: 0.5px grey solid;
+  border-radius: 10px;
+  padding: 10px 10px 10px 20px;
+  margin: 10px 0;
+}
+
+.comment-form form {
+  display: flex;
+  align-items: flex-end;
+}
+
+.comment-input {
+  flex-grow: 1;
+  padding: 5px;
+  margin-right: 10px;
+  box-sizing: border-box;
+}
+
+.comment-button {
+  margin-left: 10px;
+  padding: 0.5em 1em;
+  border: 0.5px solid;
+  border-radius: 10px;
+}
+
+.comment-form .tooltip {
+  display: block;
+  text-align: left;
+}
+
+.comment-form .tooltip-text {
+  top: -0.5em;
+  left: 1em;
+}
+
 /* -- Comment List -- */
+
 .comment-card {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   flex-wrap: wrap;
-  border: gray solid;
-  border-radius: 20px;
-  padding: 10px;
-  margin: 20px 0;
+  margin: 10px 0;
+  margin-left: 0;
+  margin-right: auto;
+  width: max(90%, 300px);
+}
+
+.comment-card.me {
+  align-items: flex-end;
+  margin-right: 0;
+  margin-left: auto;
 }
 
 .comment-card .comment-box {
-  margin-right: 10px;
+  font-size: 15px;
 }
 
 .comment-card .comment-author {
+  padding: 5px;
   font-weight: bold;
 }
 
 .comment-card .comment-content {
-  width: 250px;
+  padding: 10px;
   text-align: left;
+  border: 0.5px gray solid;
+  border-radius: 20px;
+  width: 90%;
+  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+  padding-left: 20px;
+}
+
+.comment-content p {
   flex-grow: 1;
+  margin: auto;
+}
+
+.comment-content .comment-button {
+  padding: 5px 10px;
 }

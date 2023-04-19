@@ -20,7 +20,13 @@ export async function getCommentsByArticle(article_id) {
 };
 
 export async function voteArticle(article_id, votes) {
-  const body = {inc_votes: votes}
-  const {data} = await newsApi.patch(`/articles/${article_id}`, body);
+  const message = {inc_votes: votes}
+  const {data} = await newsApi.patch(`/articles/${article_id}`, message);
   return data.article;
+}
+
+export async function postComment(article_id, body, username) {
+  const message = {body, username};
+  const {data} = await newsApi.post(`/articles/${article_id}/comments`, message);
+  return data.comment;
 }

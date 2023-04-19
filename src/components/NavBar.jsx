@@ -2,7 +2,6 @@ import { Link, useLocation } from "react-router-dom";
 
 function NavBar() {
   let location = useLocation();
-  console.log(location);
   return (
     <h2 className="nav-bar">
       {

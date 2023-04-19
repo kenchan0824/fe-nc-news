@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getArticleById, voteArticle } from "../api";
 import CommentSection from "./CommentSection";
 
-function ArticleDetail() {
+function ArticleDetail({ user }) {
   const [article, setArticle] = useState({});
   const [loading, setLoading] = useState(true);
   const [voted, setVoted] = useState(false);
@@ -59,9 +59,9 @@ function ArticleDetail() {
             <span className="tooltip-text">Sorry, cannot process votes at the moment!</span>
           </span>
         }
-        <span className="like-box">{article.votes} likes</span>
+        <span className="like-box"><b>{article.votes}</b> likes</span>
       </div>
-      <CommentSection article_id={article.article_id} />
+      <CommentSection user={user} article_id={article.article_id} />
     </section>
   );
 
