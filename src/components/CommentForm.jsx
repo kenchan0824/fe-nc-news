@@ -45,6 +45,7 @@ function CommentForm({ user, article_id, setComments }) {
           placeholder="say something ..."
           onChange={handleChange}
           value={comment}
+          rows={4}
         />
         <button className="comment-button">Post</button>
       </form>

@@ -19,10 +19,10 @@ function CommentSection({ user, article_id }) {
   return (
     <div className="comment-section">
       <h4 className="comment-header">Comments:</h4>
-      {/* {
-        loading && <div className="system">loading...</div>
-      } */}
       <CommentForm user={user} article_id={article_id} setComments={setComments} />
+      {
+        loading && <div className="system">loading...</div>
+      }
       <CommentsList user={user} article_id={article_id} comments={comments} />
     </div>
   );

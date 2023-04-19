@@ -22,8 +22,8 @@ function ArticleList() {
   }
 
   return (
-    <div className="article-list">
-      <div className="control-bar">
+    <div className="article-list grid-container">
+      <div className="control-bar grid-item">
         <label className="control-item">sort by</label>
         <select className="control-item">
           <option>date</option>
