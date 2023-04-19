@@ -16,17 +16,18 @@ function App() {
 
   return (
     <div className="App">
-      <div className="banner">
-        <Header />
-        <UserProfile user={user} />
+      <div className="app-container">
+        <div className="banner">
+          <Header />
+          <UserProfile user={user} />
+        </div>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<ArticleList />} />
+          <Route path="/topics/:topic_slug/articles" element={<ArticleList />} />
+          <Route path="/articles/:article_id" element={<ArticleDetail user={user} />} />
+        </Routes>
       </div>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<ArticleList />} />
-        <Route path="/topics/:topic_slug/articles" element={<ArticleList />} />
-        <Route path="/articles/:article_id" element={<ArticleDetail user={user} />} />
-      </Routes>
-      
     </div>
   );
 }
