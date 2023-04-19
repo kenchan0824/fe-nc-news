@@ -4,8 +4,9 @@ const newsApi = axios.create({
   baseURL: "https://be-nc-news-cu7z.onrender.com/api"
 });
 
-export async function getArticles() {
-  const {data} = await newsApi.get("/articles");
+export async function getArticles(topic) {
+  const params = { topic };
+  const {data} = await newsApi.get("/articles", { params });
   return data.articles;
 };
 
@@ -29,4 +30,9 @@ export async function postComment(article_id, body, username) {
   const message = {body, username};
   const {data} = await newsApi.post(`/articles/${article_id}/comments`, message);
   return data.comment;
+}
+
+export async function getTopics() {
+  const {data} = await newsApi.get('/topics');
+  return data.topics;
 }

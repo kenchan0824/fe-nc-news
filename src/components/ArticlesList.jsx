@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { getArticles } from "../api";
 import ArticleCard from "./ArticleCard";
 
@@ -6,13 +7,15 @@ function ArticleList() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   
+  const { topic_slug } = useParams();
+
   useEffect(() => {
     setLoading(true);
-    getArticles().then((articles) => {
+    getArticles(topic_slug).then((articles) => {
       setArticles(articles);
       setLoading(false);
     });
-  }, []);
+  }, [topic_slug]);
 
   if (loading) {
     return <div className="system">loading...</div>;
