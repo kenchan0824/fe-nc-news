@@ -111,19 +111,63 @@ h1 {
   text-align: left;
   font-size: 16px;
   font-weight: bold;
-  padding: 5px 0;
   border-top: 1px solid;
   border-bottom: 1px solid;
 }
 
-/* -- Article Card -- */
+.nav-menu {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav-menu.back {
+  justify-content: flex-start;
+}
+
+.nav-menu .menu-item {
+  display: inline-block;
+  /* font-weight: normal; */
+  /* padding-inline: 5px; */
+  padding-inline: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.nav-menu .menu-item.selected {
+  /* color: orange;
+  font-weight: bold; */
+  padding-inline: 10px;
+  background-color: black;
+  color: white;
+  ;
+}
+
+/* -- Article List -- */
+.control-bar {
+  text-align: right;
+  margin-inline: 20px;
+  margin-bottom: 20px;
+}
+
+.control-bar .control-item {
+  font-size: 14px;
+  margin-inline: 2px;
+}
+
+.control-bar label.control-item {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
 .article-list {
   margin: 20px 0 ;
 }
 
 .article-card {
   display: flex;
-  align-items: top;
+  align-items: flex-start;
   margin: 10px 20px;
 }
 
@@ -135,7 +179,7 @@ h1 {
 
 .article-card .article-box{
   text-align: left;
-  width: 100%;
+  width: auto;
 }
 
 .article-card h3 {

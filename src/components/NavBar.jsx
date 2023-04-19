@@ -1,15 +1,62 @@
-import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useLocation, useParams } from "react-router-dom";
+import { getTopics } from "../api";
 
 function NavBar() {
-  let location = useLocation();
+  const [allTopics, setAllTopics] = useState([]);
+  const [currTopic, setCurrTopic] = useState("");
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    getTopics()
+      .then(topics => setAllTopics(topics));
+  }, [])
+
+  function handleClick(event) {
+    setCurrTopic(event.target.innerText);
+  }
+
+  const back = currTopic ? `/topics/${currTopic}/articles` : "/";
+
   return (
     <h2 className="nav-bar">
       {
-        location.pathname === '/' ?
-        "Home" :
-        <Link to='/'>
-          &lt; Back
-        </Link>
+        pathname.startsWith('/articles/') ?
+        <div className="nav-menu back">
+          <Link class="menu-item" to={back}>
+            &lt; back
+          </Link>
+        </div>
+        :
+          <div className="nav-menu">
+            {
+              pathname === '/'
+              ?
+              <span className="menu-item selected">home</span>
+              :
+              <Link className="menu-item" to="/" onClick={() => setCurrTopic("")} >
+                home
+              </Link> 
+            }
+            {
+              allTopics.map((topic) => {
+                  return (
+                    <span key={topic.slug}>
+                      <span className="menu-item">|</span>
+                      {
+                        currTopic === topic.slug
+                        ?
+                        <span className="menu-item selected">{topic.slug}</span>
+                        :
+                        <Link className="menu-item" to={`/topics/${topic.slug}/articles`} onClick={handleClick}>
+                          {topic.slug}
+                        </Link>
+                      }
+                    </span>
+                  );
+              })
+            }
+          </div>
       }
     </h2>
   );

@@ -23,6 +23,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<ArticleList />} />
+        <Route path="/topics/:topic_slug/articles" element={<ArticleList />} />
         <Route path="/articles/:article_id" element={<ArticleDetail user={user} />} />
       </Routes>
       
