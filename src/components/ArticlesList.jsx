@@ -19,7 +19,7 @@ function ArticleList() {
   }
 
   return (
-    <div>
+    <div className="article-list">
       {
         articles.map((article) => 
           <ArticleCard key={article.article_id} article={article} />

@@ -59,7 +59,7 @@ function ArticleDetail({ user }) {
             <span className="tooltip-text">Sorry, cannot process votes at the moment!</span>
           </span>
         }
-        <span className="like-box">{article.votes} likes</span>
+        <span className="like-box"><b>{article.votes}</b> likes</span>
       </div>
       <CommentSection user={user} article_id={article.article_id} />
     </section>

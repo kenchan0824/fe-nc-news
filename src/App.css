@@ -6,7 +6,7 @@
 
 .App {
   text-align: center;
-  max-width: 600px;
+  max-width: 500px;
   margin: auto;
 }
 
@@ -107,7 +107,7 @@ h1 {
 }
 
 .nav-bar {
-  margin: 0 20px 20px 20px;
+  margin: 20px;
   text-align: left;
   font-size: 14px;
   font-weight: bold;
@@ -117,6 +117,9 @@ h1 {
 }
 
 /* -- Article Card -- */
+.article-list {
+  margin: 20px 0 ;
+}
 
 .article-card {
   display: flex;
@@ -191,6 +194,7 @@ h1 {
 .like button {
   margin-right: 10px;
   padding: 5px;
+  border: 0.5px solid;
   border-radius: 10px;
 }
 
@@ -235,9 +239,9 @@ h1 {
 }
 
 .comment-form {
-  border: grey solid;
+  border: 0.5px grey solid;
   border-radius: 10px;
-  padding: 10px 10px;
+  padding: 10px 10px 10px 20px;
   margin: 10px 0;
 }
 
@@ -249,13 +253,14 @@ h1 {
 .comment-input {
   flex-grow: 1;
   padding: 5px;
-  margin: 0 10px;
+  margin-right: 10px;
   box-sizing: border-box;
 }
 
 .comment-button {
   margin-left: 10px;
   padding: 0.5em 1em;
+  border: 0.5px solid;
   border-radius: 10px;
 }
 
@@ -277,10 +282,15 @@ h1 {
   align-items: flex-start;
   flex-wrap: wrap;
   margin: 10px 0;
+  margin-left: 0;
+  margin-right: auto;
+  width: max(90%, 300px);
 }
 
 .comment-card.me {
   align-items: flex-end;
+  margin-right: 0;
+  margin-left: auto;
 }
 
 .comment-card .comment-box {
@@ -293,12 +303,14 @@ h1 {
 }
 
 .comment-card .comment-content {
-  width: max(80%, 300px);
   text-align: left;
-  border: gray solid;
+  border: 0.5px gray solid;
   border-radius: 20px;
+  width: 90%;
   display: flex;
   align-items: flex-end;
+  padding: 10px;
+  padding-left: 20px;
 }
 
 .comment-content p {
