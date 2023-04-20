@@ -10,7 +10,6 @@ function ArticleList() {
     sortBy: "created_at",
     order: "desc"
   });
-  const [order, setOrder] = useState("desc");
   
   const { topic_slug } = useParams();
 
