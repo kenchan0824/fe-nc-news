@@ -229,6 +229,10 @@ h1 {
   margin-top: 20px;
 }
 
+.article-detail h3 {
+  font-size: 20px;
+}
+
 .article-detail img {
   width: 80%;
   display: block;
@@ -359,16 +363,20 @@ h1 {
   margin-left: auto;
 }
 
-.comment-card .comment-box {
+.comment-box .author {
+  display: inline-block;
+  padding: 5px;
+  font-weight: bold;
   font-size: 15px;
 }
 
-.comment-card .comment-author {
+.comment-box .date {
+  display: inline-block;
   padding: 5px;
-  font-weight: bold;
+  font-size: 14px;
 }
 
-.comment-card .comment-content {
+.comment-card .content {
   text-align: left;
   border: 0.5px gray solid;
   border-radius: 20px;
@@ -376,9 +384,10 @@ h1 {
   align-items: flex-end;
   padding: 10px;
   padding-inline: 20px;
+  font-size: 16px;
 }
 
-.comment-card.me .comment-content {
+.comment-card.me .content {
   padding-right: 10px;
 }
 
@@ -387,7 +396,7 @@ h1 {
   margin: auto;
 }
 
-.comment-content .comment-button {
+.comment-box .comment-button {
   padding: 5px 10px;
 }
 
@@ -407,8 +416,12 @@ h1 {
   gap: 20px;
 }
 
-/* Extra small devices (phones, 425px and down) */
-@media only screen and (max-width: 425px) {
+/* Extra small devices (phones, 426px and down) */
+@media only screen and (max-width: 426px) {
+  .article-detail h3 {
+    font-size: 18px;
+  }
+
   .article-detail .content {
     font-size: 16px;
     line-height: 1.2em;
@@ -448,7 +461,7 @@ h1 {
   }
   
   .article-detail.grid-container {
-    grid-template-columns: 65% auto;
+    grid-template-columns: 60% auto;
   }
 
   .article-section.grid-item {

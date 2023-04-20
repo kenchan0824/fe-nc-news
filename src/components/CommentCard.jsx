@@ -20,12 +20,15 @@ function CommentCard({ user, comment, setComments }) {
   if (comment.author === user.username) {
     return (
       <div className="comment-card me" >
-        <div className="comment-box comment-author">me</div>
-        <div className="comment-box comment-content">
+        <div className="comment-box">
+          <span className="author">me</span>
+          <span className="date">{new Date(comment.created_at).toDateString()}</span>
+        </div>
+        <div className="comment-box content">
           <p>
             {comment.body}
           </p>
-          <button className="comment-box comment-button" onClick={handleClick}>🗑</button>
+          <button className="comment-button" onClick={handleClick}>🗑</button>
           {
             comment.error &&
             <div className="tooltip">
@@ -39,8 +42,11 @@ function CommentCard({ user, comment, setComments }) {
   } else {
     return (
       <div className="comment-card">
-        <div className="comment-box comment-author">{comment.author}</div>
-        <p className="comment-box comment-content">{comment.body}</p> 
+        <div className="comment-box">
+          <span className="author">{comment.author}</span>
+          <span className="date">{new Date(comment.created_at).toDateString()}</span>
+        </div>
+        <p className="comment-box content">{comment.body}</p> 
       </div>
     );
   }

@@ -73,6 +73,7 @@ function ArticleDetail({ user }) {
               <span className="tooltip-text">Sorry, can't process your vote!</span>
             </span>
           }
+          <span className="like-box"><b>{article.comment_count}</b> comments</span>
         </div>
 
       </section>
