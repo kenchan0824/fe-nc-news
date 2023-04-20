@@ -8,20 +8,18 @@ function NavBar() {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    getTopics().then((topics) => setAllTopics(topics));
+  }, []);
+
+  useEffect(() => {
     if (pathname === "/") {
       setCurrTopic("");
     } else if (pathname.startsWith("/topics/")) {
       const pathTopic = pathname.split('/')[2];
       setCurrTopic(pathTopic);
     }
+  }, [pathname]);  
   
-    getTopics().then((topics) => setAllTopics(topics));
-  }, []);
-
-  function handleClick(event) {
-    setCurrTopic(event.target.innerText);
-  }
-
   const homeItem = currTopic === "" ?
     <span className="menu-item selected">home</span>
   : (
@@ -40,7 +38,6 @@ function NavBar() {
           <Link
             className="menu-item"
             to={`/topics/${topic.slug}/articles`}
-            onClick={handleClick}
           >
             {topic.slug}
           </Link>
@@ -56,7 +53,7 @@ function NavBar() {
     </div>
   );
 
-  const backTo = currTopic ? `/topics/${currTopic}/articles` : "/";
+  const backTo = currTopic === "" ? "/" : `/topics/${currTopic}/articles`;
   const backBar = (
     <div className="nav-menu back">
       <Link className="menu-item" to={backTo}>

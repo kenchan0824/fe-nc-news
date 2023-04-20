@@ -6,6 +6,7 @@ import ArticleCard from "./ArticleCard";
 function ArticleList() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [sort, setSort] = useState({
     sortBy: "created_at",
     order: "desc"
@@ -23,11 +24,26 @@ function ArticleList() {
 
   useEffect(() => {
     setLoading(true);
-    getArticles(topic_slug, sort.sortBy, sort.order).then((articles) => {
-      setArticles(articles);
-      setLoading(false);
-    });
+    setError(false);
+    getArticles(topic_slug, sort.sortBy, sort.order)
+      .then((articles) => {
+        setArticles(articles);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(true);
+        setLoading(false);
+      });
   }, [topic_slug, sort]);
+
+  if (error) {
+    return (
+      <div className="error">
+        <h3>Error</h3>
+        Oops, cannot find your requesting topic!
+      </div>
+    );
+  }
 
   if (loading) {
     return <div className="system">loading...</div>;

@@ -14,6 +14,13 @@ function App() {
     avatar_url: "https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141"
   });
 
+  const errorMsg = (
+    <div className="error">
+      <h3>Error</h3>
+      Oops, you're accessing the wrong path!
+    </div>
+  ); 
+
   return (
     <div className="App">
       <div className="app-container">
@@ -26,6 +33,7 @@ function App() {
           <Route path="/" element={<ArticleList />} />
           <Route path="/topics/:topic_slug/articles" element={<ArticleList />} />
           <Route path="/articles/:article_id" element={<ArticleDetail user={user} />} />
+          <Route path="*" element={errorMsg} />
         </Routes>
       </div>
     </div>
