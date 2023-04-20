@@ -23,7 +23,7 @@ function CommentSection({ user, article_id }) {
       {
         loading && <div className="system">loading...</div>
       }
-      <CommentsList user={user} article_id={article_id} comments={comments} />
+      <CommentsList user={user} article_id={article_id} comments={comments} setComments={setComments} />
     </div>
   );
 }

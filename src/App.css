@@ -386,14 +386,20 @@ h1 {
   padding: 5px 10px;
 }
 
+.comment-card.me .tooltip {
+  display: block;
+  text-align: left;
+}
+
+.comment-card.me .tooltip-text {
+  top: -0.5em;
+  width: 220px;
+  left: -220px;}
+
 /* --- Reponsive Webpage --- */
 .grid-container {
   display: grid;
   gap: 20px;
-}
-
-.grid-item {
-  
 }
 
 /* Extra small devices (phones, 425px and down) */
