@@ -4,6 +4,11 @@ const newsApi = axios.create({
   baseURL: "https://be-nc-news-cu7z.onrender.com/api",
 });
 
+export async function getTopics() {
+  const { data } = await newsApi.get("/topics");
+  return data.topics;
+}
+
 export async function getArticles(topic, sort_by, order) {
   const params = { topic, sort_by, order };
   const { data } = await newsApi.get("/articles", { params });
@@ -15,16 +20,16 @@ export async function getArticleById(article_id) {
   return data.article;
 }
 
-export async function getCommentsByArticle(article_id) {
-  const { data } = await newsApi.get(`/articles/${article_id}/comments`);
-  return data.comments;
-}
-
 export async function voteArticle(article_id, votes) {
   const message = { inc_votes: votes };
   const { data } = await newsApi.patch(`/articles/${article_id}`, message);
   return data.article;
 }
+
+export async function getCommentsByArticle(article_id) {
+  const { data } = await newsApi.get(`/articles/${article_id}/comments`);
+  return data.comments;
+}  
 
 export async function postComment(article_id, body, username) {
   const message = { body, username };
@@ -35,7 +40,6 @@ export async function postComment(article_id, body, username) {
   return data.comment;
 }
 
-export async function getTopics() {
-  const { data } = await newsApi.get("/topics");
-  return data.topics;
+export async function deleteComment(comment_id) {
+  return await newsApi.delete(`/comments/${comment_id}`);
 }

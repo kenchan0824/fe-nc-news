@@ -8,6 +8,13 @@ function NavBar() {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    if (pathname === "/") {
+      setCurrTopic("");
+    } else if (pathname.startsWith("/topics/")) {
+      const pathTopic = pathname.split('/')[2];
+      setCurrTopic(pathTopic);
+    }
+  
     getTopics().then((topics) => setAllTopics(topics));
   }, []);
 
@@ -15,7 +22,7 @@ function NavBar() {
     setCurrTopic(event.target.innerText);
   }
 
-  const homeItem = pathname === "/" ?
+  const homeItem = currTopic === "" ?
     <span className="menu-item selected">home</span>
   : (
     <Link className="menu-item" to="/" onClick={() => setCurrTopic("")}>

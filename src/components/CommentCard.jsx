@@ -1,4 +1,22 @@
-function CommentCard({ user, comment }) {
+import { useState } from "react";
+import { deleteComment } from "../api";
+
+function CommentCard({ user, comment, setComments }) {
+
+  function handleClick(event) {
+    // delete optimistically
+    setComments((current) => {
+      return current.filter((retained) => retained.comment_id !== comment.comment_id);
+    });
+    deleteComment(comment.comment_id)
+      .catch(err => {
+        comment.error = true;
+        setComments((current) => {
+          return [comment, ...current];
+        })
+      });
+  }
+
   if (comment.author === user.username) {
     return (
       <div className="comment-card me" >
@@ -7,8 +25,15 @@ function CommentCard({ user, comment }) {
           <p>
             {comment.body}
           </p>
-          <button className="comment-box comment-button">🗑</button>
+          <button className="comment-box comment-button" onClick={handleClick}>🗑</button>
         </div>
+        {
+          comment.error &&
+          <div className="tooltip">
+            <span>❗</span>
+            <span className="tooltip-text">Oops! Cannot delete your comment.</span>
+          </div>
+        }
       </div>
     );
   } else {
