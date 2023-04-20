@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticles } from "../api";
 import ArticleCard from "./ArticleCard";
+import Error from "./Error";
 
 function ArticleList() {
   const [articles, setArticles] = useState([]);
@@ -37,12 +38,7 @@ function ArticleList() {
   }, [topic_slug, sort]);
 
   if (error) {
-    return (
-      <div className="error">
-        <h3>Error</h3>
-        Oops, cannot find your requesting topic!
-      </div>
-    );
+    return <Error message="Oops, cannot find your requesting topic!" />;
   }
 
   if (loading) {

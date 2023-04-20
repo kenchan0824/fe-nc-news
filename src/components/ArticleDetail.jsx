@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getArticleById, voteArticle } from "../api";
 
 import CommentSection from "./CommentSection";
+import Error from "./Error";
 
 function ArticleDetail({ user }) {
   const [article, setArticle] = useState({});
@@ -45,12 +46,7 @@ function ArticleDetail({ user }) {
   }
 
   if (loadError) {
-    return (
-      <div className="error">
-        <h3>Error</h3>
-        Oops, can't find your requesting article!
-      </div>
-    );
+    return <Error message="Oops, can't find your requesting article!" />;
   }
 
   if (loading) {
