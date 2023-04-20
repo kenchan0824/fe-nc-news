@@ -52,15 +52,15 @@ function CommentForm({ user, article_id, setComments }) {
       {
         warn && 
         <div className="tooltip">
-          <span>⚠</span> 
-          <span className="tooltip-text">You must type somethings</span>
+          <span>❗</span> 
+          <span className="tooltip-text">You must type somethings!</span>
         </div>
       }
       {
         error && 
         <div className="tooltip">
           <span>❗</span> 
-          <span className="tooltip-text">Oops, cannot post your comment!</span>
+          <span className="tooltip-text">Oops, can't post your comment!</span>
         </div>
       }
     </div>

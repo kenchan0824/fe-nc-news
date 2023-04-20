@@ -26,14 +26,14 @@ function CommentCard({ user, comment, setComments }) {
             {comment.body}
           </p>
           <button className="comment-box comment-button" onClick={handleClick}>🗑</button>
+          {
+            comment.error &&
+            <div className="tooltip">
+              <span>❗</span>
+              <span className="tooltip-text">Oops, can't delete your comment!</span>
+            </div>
+          }
         </div>
-        {
-          comment.error &&
-          <div className="tooltip">
-            <span>❗</span>
-            <span className="tooltip-text">Oops! Cannot delete your comment.</span>
-          </div>
-        }
       </div>
     );
   } else {

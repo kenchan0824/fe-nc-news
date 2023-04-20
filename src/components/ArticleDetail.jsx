@@ -1,24 +1,29 @@
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { getArticleById, voteArticle } from "../api";
-import { getCommentsByArticle } from "../api";
 
 import CommentSection from "./CommentSection";
-import CommentForm from "./CommentForm";
+import Error from "./Error";
 
 function ArticleDetail({ user }) {
   const [article, setArticle] = useState({});
   const [loading, setLoading] = useState(true);
   const [voted, setVoted] = useState(false);
-  const [error, setError] = useState(false);
+  const [voteError, setVoteError] = useState(false);
+  const [loadError, setLoadError] = useState(false);
   
   const { article_id } = useParams();
   
   useEffect(() => {
     setLoading(true);
+    setLoadError(false);
     getArticleById(article_id)
       .then((data) => {
         setArticle(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoadError(true);
         setLoading(false);
       });
     }, []);
@@ -29,15 +34,19 @@ function ArticleDetail({ user }) {
     setArticle((current) => {
       return {...current, votes: current.votes + incVote};
     });
-    setError(false);
+    setVoteError(false);
     voteArticle(article_id, incVote)
       .catch(() => {
-        setError(true);
+        setVoteError(true);
         setVoted((current) => !current);
         setArticle((current) => {
           return {...current, votes: current.votes - incVote};
         });
       });
+  }
+
+  if (loadError) {
+    return <Error message="Oops, can't find your requesting article!" />;
   }
 
   if (loading) {
@@ -56,14 +65,14 @@ function ArticleDetail({ user }) {
         <p className="detail-item content">{article.body}</p>
         <div className="detail-item like">
           <button className="like-box" onClick={handleVote}>{voted?<p>❤️</p>:<p>🤍</p>}</button> 
+          <span className="like-box"><b>{article.votes}</b> likes</span>
           {
-            error && 
+            voteError && 
             <span className="like-box tooltip">
               <span>❗</span> 
-              <span className="tooltip-text">Sorry, cannot process votes at the moment!</span>
+              <span className="tooltip-text">Sorry, can't process your vote!</span>
             </span>
           }
-          <span className="like-box"><b>{article.votes}</b> likes</span>
         </div>
 
       </section>

@@ -6,6 +6,7 @@ import ArticleList from './components/ArticlesList';
 import ArticleDetail from './components/ArticleDetail';
 import NavBar from './components/NavBar';
 import UserProfile from './components/UserProfile';
+import Error from "./components/Error";
 
 function App() {
   const [user, setUser] = useState({
@@ -26,6 +27,9 @@ function App() {
           <Route path="/" element={<ArticleList />} />
           <Route path="/topics/:topic_slug/articles" element={<ArticleList />} />
           <Route path="/articles/:article_id" element={<ArticleDetail user={user} />} />
+          <Route path="*" element={
+            <Error message="Oops, you're accessing the wrong path!" />
+          } />
         </Routes>
       </div>
     </div>
