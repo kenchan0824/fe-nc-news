@@ -4,14 +4,15 @@ import { getArticleById, voteArticle } from "../api";
 
 import CommentSection from "./CommentSection";
 import Error from "./Error";
+import InfoModal from "./InfoModal";
 
 function ArticleDetail({ user }) {
   const [article, setArticle] = useState({});
   const [loading, setLoading] = useState(true);
   const [voted, setVoted] = useState(false);
-  const [voteError, setVoteError] = useState(false);
   const [loadError, setLoadError] = useState(false);
-  
+  const [modalOpen, setModalOpen] = useState(false);
+
   const { article_id } = useParams();
   
   useEffect(() => {
@@ -34,14 +35,13 @@ function ArticleDetail({ user }) {
     setArticle((current) => {
       return {...current, votes: current.votes + incVote};
     });
-    setVoteError(false);
     voteArticle(article_id, incVote)
       .catch(() => {
-        setVoteError(true);
         setVoted((current) => !current);
         setArticle((current) => {
           return {...current, votes: current.votes - incVote};
         });
+        setModalOpen(true);
       });
   }
 
@@ -56,25 +56,28 @@ function ArticleDetail({ user }) {
   return (
     <div className="article-detail grid-container">
       <section className="article-section grid-item">
+
         <h3 className="detail-item">{article.title}</h3>
         <p className="detail-item subtitle">
           <span className="flex-box"><b>{article.author}</b></span>
           <span className="flex-box">{new Date(article.created_at).toDateString()}</span>
         </p>
+
         <img src={article.article_img_url} alt={article.title} />
         <p className="detail-item content">{article.body}</p>
+
         <div className="detail-item like">
           <button className="like-box" onClick={handleVote}>{voted?<p>❤️</p>:<p>🤍</p>}</button> 
           <span className="like-box"><b>{article.votes}</b> likes</span>
-          {
-            voteError && 
-            <span className="like-box tooltip">
-              <span>❗</span> 
-              <span className="tooltip-text">Sorry, can't process your vote!</span>
-            </span>
-          }
           <span className="like-box"><b>{article.comment_count}</b> comments</span>
         </div>
+
+        <InfoModal 
+          title="❌ Error"
+          message="Oops, can't process your vote!" 
+          isOpen={modalOpen}
+          setIsOpen={setModalOpen}
+        />
 
       </section>
 

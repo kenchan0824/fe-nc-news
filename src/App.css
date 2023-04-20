@@ -53,6 +53,7 @@ html {
 .app-container {
   padding: 20px;
   background-color: white;
+  min-height: 1180px;
 }
 
 a:link {
@@ -82,6 +83,10 @@ p {
 
 .error h3 {
   margin: 1em;
+}
+
+.system {
+  padding-top: 20px;
 }
 
 /* -- Header -- */
@@ -205,16 +210,19 @@ h1 {
   margin-bottom: 5px;
   display: block;
   justify-content: left;
-  font-size: 14px;
 }
 
 .article-box h3 {
-  font-size: 1em;
+  font-size: 14px;
+}
+
+.article-box .subtitle {
+  font-size: 12px;
 }
 
 .subtitle span {
   display: inline-block;
-  margin-right: 1em;
+  margin-right: 0.5em;
 }
 
 .like span {
@@ -230,7 +238,7 @@ h1 {
 }
 
 .article-detail h3 {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .article-detail img {
@@ -249,7 +257,7 @@ h1 {
 
 .article-detail .subtitle {
   display: flex;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .subtitle .flex-box{
@@ -263,7 +271,7 @@ h1 {
 }
 
 .article-detail .like {
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .like button {
@@ -318,7 +326,8 @@ h1 {
   border: 0.5px grey solid;
   border-radius: 10px;
   padding: 10px 10px 10px 20px;
-  margin: 10px 0;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .comment-form form {
@@ -363,17 +372,14 @@ h1 {
   margin-left: auto;
 }
 
-.comment-box .author {
+.comment-box span {
   display: inline-block;
-  padding: 5px;
-  font-weight: bold;
-  font-size: 15px;
+  font-size: 14px;
 }
 
-.comment-box .date {
-  display: inline-block;
-  padding: 5px;
-  font-size: 14px;
+.comment-box .author {
+  font-weight: bold;
+  padding: 0.5em;
 }
 
 .comment-card .content {
@@ -411,6 +417,7 @@ h1 {
   left: -251px;}
 
 /* --- Reponsive Webpage --- */
+
 .grid-container {
   display: grid;
   gap: 20px;
@@ -448,7 +455,7 @@ h1 {
 /* Extra large devices (large laptops and desktops, 1024px and up) */
 @media only screen and (min-width: 1024px) {
   .App {
-    max-width: 1200px;
+    max-width: 1024px;
   }
 
   .article-list.grid-container {
@@ -468,4 +475,17 @@ h1 {
     padding-right: 20px;
     border-right: 0.5px solid;
   }
+}
+
+/* --- Modal --- */
+.modal-header {
+  text-align: left;
+  padding-bottom: 20px;
+  border-bottom: 0.5px solid;
+}
+
+.modal-message {
+  padding-top: 20px;
+  text-align: center;
+  font-size: 16px;
 }

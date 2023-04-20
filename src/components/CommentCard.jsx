@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { deleteComment } from "../api";
 
-function CommentCard({ user, comment, setComments }) {
+function CommentCard({ user, comment, setComments, setModalOpen }) {
 
   function handleClick(event) {
-    // delete optimistically
+    // optimistic delete
     setComments((current) => {
       return current.filter((retained) => retained.comment_id !== comment.comment_id);
     });
     deleteComment(comment.comment_id)
       .catch(err => {
-        comment.error = true;
+        setModalOpen(true);
         setComments((current) => {
           return [comment, ...current];
         })
@@ -18,6 +18,7 @@ function CommentCard({ user, comment, setComments }) {
   }
 
   if (comment.author === user.username) {
+
     return (
       <div className="comment-card me" >
         <div className="comment-box">
@@ -25,21 +26,14 @@ function CommentCard({ user, comment, setComments }) {
           <span className="date">{new Date(comment.created_at).toDateString()}</span>
         </div>
         <div className="comment-box content">
-          <p>
-            {comment.body}
-          </p>
+          <p>{comment.body}</p>
           <button className="comment-button" onClick={handleClick}>🗑</button>
-          {
-            comment.error &&
-            <div className="tooltip">
-              <span>❗</span>
-              <span className="tooltip-text">Oops, can't delete your comment!</span>
-            </div>
-          }
         </div>
       </div>
     );
+
   } else {
+
     return (
       <div className="comment-card">
         <div className="comment-box">
@@ -49,6 +43,7 @@ function CommentCard({ user, comment, setComments }) {
         <p className="comment-box content">{comment.body}</p> 
       </div>
     );
+  
   }
 }
 
