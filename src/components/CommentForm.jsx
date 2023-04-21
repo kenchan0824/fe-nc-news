@@ -1,17 +1,15 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { postComment } from "../api";
-import InfoModal from "./InfoModal";  
+import InfoModal from "./InfoModal";
 import { UserContext } from "../contexts/User";
 
 function CommentForm({ article_id, setComments }) {
-  
-  const {user, setUser} = useContext(UserContext);
-  
+  const { user } = useContext(UserContext);
+
   const [comment, setComment] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [modalMessage, setModalMessage] = useState("");
-
 
   function handleChange(event) {
     setComment(event.target.value);
@@ -19,18 +17,18 @@ function CommentForm({ article_id, setComments }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    
+
     const body = event.target[0].value;
     if (!body.trim()) {
       setModalTitle("❗ Warn");
-      setModalMessage("You must type something.")
+      setModalMessage("You must type something.");
       setModalOpen(true);
-      return; 
+      return;
     }
 
     setComment("");
     setComments((current) => {
-      return [{body, author: user.username}, ...current]
+      return [{ body, author: user.username }, ...current];
     });
 
     postComment(article_id, body, user.username)
@@ -44,24 +42,23 @@ function CommentForm({ article_id, setComments }) {
           return current.slice(1);
         });
         setModalTitle("❌ Error");
-        setModalMessage("Oops, can't post your comment!")
-        setModalOpen(true);  
+        setModalMessage("Oops, can't post your comment!");
+        setModalOpen(true);
       });
   }
 
   return (
-    <div className="comment-form" >
-      
-      <InfoModal 
+    <div className="comment-form">
+      <InfoModal
         title={modalTitle}
-        message={modalMessage} 
+        message={modalMessage}
         isOpen={modalOpen}
         setIsOpen={setModalOpen}
       />
 
       <form onSubmit={handleSubmit}>
-        <textarea 
-          className="comment-input" 
+        <textarea
+          className="comment-input"
           placeholder="say something ..."
           onChange={handleChange}
           value={comment}
@@ -69,7 +66,6 @@ function CommentForm({ article_id, setComments }) {
         />
         <button className="comment-button">Post</button>
       </form>
-    
     </div>
   );
 }

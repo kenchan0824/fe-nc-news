@@ -28,7 +28,7 @@ function ArticleDetail() {
         setLoadError(true);
         setLoading(false);
       });
-    }, []);
+    }, [article_id]);
   
   function handleVote(event) {
     const incVote = voted ? -1 : 1;

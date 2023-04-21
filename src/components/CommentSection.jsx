@@ -14,7 +14,7 @@ function CommentSection({ article_id }) {
         setLoading(false);
         setComments(data);
       });
-  }, []);
+  }, [article_id]);
 
   return (
     <div className="comment-section">
