@@ -19,10 +19,10 @@ function CommentsList({ article_id, comments, setComments }) {
       />
 
       {
-        comments.map((comment) => {
+        comments.map((comment, index) => {
           return (
             <CommentCard 
-              key={comment.comment_id} 
+              key={index} 
               comment={comment} 
               setComments={setComments}
               setModalOpen={setModalOpen}
