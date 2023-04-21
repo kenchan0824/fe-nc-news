@@ -5,6 +5,7 @@ import { getArticleById, voteArticle } from "../api";
 import CommentSection from "./CommentSection";
 import Error from "./Error";
 import InfoModal from "./InfoModal";
+import Loading from "./Loading";
 
 function ArticleDetail({ user }) {
   const [article, setArticle] = useState({});
@@ -50,7 +51,7 @@ function ArticleDetail({ user }) {
   }
 
   if (loading) {
-    return <div className="system">loading...</div>;
+    return <Loading />;
   }
   
   return (

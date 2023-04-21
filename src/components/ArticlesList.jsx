@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticles } from "../api";
+
 import ArticleCard from "./ArticleCard";
 import Error from "./Error";
+import Loading from "./Loading";
 
 function ArticleList() {
   const [articles, setArticles] = useState([]);
@@ -42,9 +44,9 @@ function ArticleList() {
   }
 
   if (loading) {
-    return <div className="system">loading...</div>;
+    return <Loading />;
   }
-
+  
   return (
     <div className="article-list grid-container">
       <div className="control-bar grid-item">
