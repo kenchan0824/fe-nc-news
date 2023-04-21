@@ -1,4 +1,10 @@
-function UserProfile({ user }) {
+import { useContext } from "react";
+import { UserContext } from "../contexts/User";
+
+
+function UserProfile() {
+  const {user, setUser} = useContext(UserContext);
+
   return (
     <div className="user-profile">
       <div className="user-box dummy"></div>

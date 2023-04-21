@@ -3,7 +3,7 @@ import { getCommentsByArticle } from "../api";
 import CommentsList from "./CommentsList";
 import CommentForm from "./CommentForm";
 
-function CommentSection({ user, article_id }) {
+function CommentSection({ article_id }) {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -19,11 +19,11 @@ function CommentSection({ user, article_id }) {
   return (
     <div className="comment-section">
       <h4 className="comment-header">Comments:</h4>
-      <CommentForm user={user} article_id={article_id} setComments={setComments} />
+      <CommentForm article_id={article_id} setComments={setComments} />
       {
         loading && <div className="system">loading...</div>
       }
-      <CommentsList user={user} article_id={article_id} comments={comments} setComments={setComments} />
+      <CommentsList article_id={article_id} comments={comments} setComments={setComments} />
     </div>
   );
 }

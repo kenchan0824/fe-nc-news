@@ -2,7 +2,7 @@ import { useState } from "react";
 import CommentCard from "./CommentCard";
 import InfoModal from "./InfoModal";
 
-function CommentsList({ user, article_id, comments, setComments }) {
+function CommentsList({ article_id, comments, setComments }) {
   const [modalOpen, setModalOpen] = useState(false);
 
   if (comments.length === 0) {
@@ -23,7 +23,6 @@ function CommentsList({ user, article_id, comments, setComments }) {
           return (
             <CommentCard 
               key={comment.comment_id} 
-              user={user} 
               comment={comment} 
               setComments={setComments}
               setModalOpen={setModalOpen}

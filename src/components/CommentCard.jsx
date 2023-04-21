@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { deleteComment } from "../api";
+import { UserContext } from "../contexts/User";
 
-function CommentCard({ user, comment, setComments, setModalOpen }) {
+function CommentCard({ comment, setComments, setModalOpen }) {
+
+  const { user, setUser } = useContext(UserContext);
 
   function handleClick(event) {
     // optimistic delete

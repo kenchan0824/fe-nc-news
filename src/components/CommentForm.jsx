@@ -1,8 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { postComment } from "../api";
 import InfoModal from "./InfoModal";  
+import { UserContext } from "../contexts/User";
 
-function CommentForm({ user, article_id, setComments }) {
+function CommentForm({ article_id, setComments }) {
+  
+  const {user, setUser} = useContext(UserContext);
+  
   const [comment, setComment] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalTitle, setModalTitle] = useState("");

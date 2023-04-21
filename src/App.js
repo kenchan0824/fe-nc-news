@@ -9,24 +9,19 @@ import UserProfile from './components/UserProfile';
 import Error from "./components/Error";
 
 function App() {
-  const [user, setUser] = useState({
-    username: "jessjelly",
-    name: "Jess Jelly",
-    avatar_url: "https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141"
-  });
 
   return (
     <div className="App">
       <div className="app-container">
         <div className="banner">
           <Header />
-          <UserProfile user={user} />
+          <UserProfile />
         </div>
         <NavBar />
         <Routes>
           <Route path="/" element={<ArticleList />} />
           <Route path="/topics/:topic_slug/articles" element={<ArticleList />} />
-          <Route path="/articles/:article_id" element={<ArticleDetail user={user} />} />
+          <Route path="/articles/:article_id" element={<ArticleDetail />} />
           <Route path="*" element={
             <Error message="Oops, you're accessing the wrong path!" />
           } />

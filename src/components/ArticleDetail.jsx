@@ -7,7 +7,7 @@ import Error from "./Error";
 import InfoModal from "./InfoModal";
 import Loading from "./Loading";
 
-function ArticleDetail({ user }) {
+function ArticleDetail() {
   const [article, setArticle] = useState({});
   const [loading, setLoading] = useState(true);
   const [voted, setVoted] = useState(false);
@@ -82,7 +82,7 @@ function ArticleDetail({ user }) {
 
       </section>
 
-      <CommentSection user={user} article_id={article.article_id} />
+      <CommentSection article_id={article.article_id} />
     </div>
   );
 
