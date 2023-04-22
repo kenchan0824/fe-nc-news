@@ -2,11 +2,11 @@
   font-size: 62.5%;
   --san-serif: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --serif: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
-  --light-shades: #FAF9F9;
-  --light-ascent: #A5998B;
-  --brand-color: #E09539;
-  --dark-ascent: #C74846;
-  --dark-shades: #313344;
+  --light-shades: #F3F1F4;
+  --dark-ascent: #B59674;
+  --brand-color: #4A687D;
+  --dark-ascent: #AC4258;
+  --dark-shades: #2A2A32;
   background-color: var(--dark-shades);
 }
 
@@ -123,7 +123,6 @@ button {
   border: 0;
   border-radius: 10px;
   padding: 0.5em;
-
 }
 
 
@@ -193,12 +192,12 @@ h1 {
   & .menu-items {
     display: inline-block;
     padding: 0.5rem;
-    color: var(--light-ascent);
+    color: var(--dark-ascent);
   }
   
   
   & .menu-items.selected {
-    background-color: var(--light-ascent);
+    background-color: var(--dark-ascent);
     color: var(--light-shades);
     ;
   }
@@ -256,7 +255,7 @@ h1 {
     
     & h3 {
       font-size: 1.6rem;
-      color: var(--light-ascent);
+      color: var(--brand-color);
     }
     
     & .subtitle {
@@ -280,7 +279,7 @@ h1 {
     margin-bottom: 10px;
 
     & .date {
-      color: var(--light-ascent);
+      color: var(--dark-ascent);
     }
   }
 
@@ -390,7 +389,7 @@ h1 {
     }
 
     & .date {
-      color: var(--light-ascent);
+      color: var(--dark-ascent);
     }
   } 
   
