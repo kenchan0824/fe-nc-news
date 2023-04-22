@@ -18,7 +18,7 @@ function CommentSection({ article_id }) {
 
   return (
     <div className="comment-section">
-      <h4 className="comment-header">Comments:</h4>
+      <h4>Comments:</h4>
       <CommentForm article_id={article_id} setComments={setComments} />
       {
         loading && <div className="system">loading...</div>

@@ -7,7 +7,7 @@
   --brand-color: #313640;
   --dark-ascent: #4A687D;
   --dark-shades: #21172B;
-  background-color: var(--dark-ascent);
+  background-color: var(--dark-shades);
 }
 
 * {
@@ -56,6 +56,7 @@
     transform: rotate(360deg);
   }
 }
+
 
 /* --- Custom --- */
 
@@ -114,6 +115,18 @@ img.loading-items  {
   gap: 20px;
 }
 
+button {
+  cursor:  pointer ;
+  background-color: var(--light-ascent);
+  color: var(--light-shades);
+  font-weight: bold;
+  border: 0;
+  border-radius: 10px;
+  padding: 0.5em;
+
+}
+
+
 /* -- Header -- */
 
 .banner {
@@ -123,9 +136,9 @@ img.loading-items  {
 h1 {
   margin-bottom: 10px;
   text-align: left;
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   color: var(--brand-color);
-  font-family: var(--serif);
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .user-profile {
@@ -149,16 +162,16 @@ h1 {
   & .username {
     font-size: 1.4rem;
     text-align: left;
-    color: var(--light-ascent);
+    color: var(--dark-ascent);
   }
 
   & img {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     margin-left: 10px;
   }  
-
 }    
+
 
 /* --- Nav Bar --- */
 
@@ -200,6 +213,7 @@ h1 {
   }
 }
 
+
 /* -- Article List -- */
 
 .control-bar {
@@ -213,21 +227,22 @@ h1 {
   
   & label.control-items {
     font-weight: bold;
-    color: var(--light-ascent);
+    color: var(--dark-ascent);
   }
 }
 
 .article-list {
   margin-top: 20px;
+  gap: 15px;
 }
 
 .article-card {
   align-items: flex-start;
   
   & img {
-    margin-right: 20px;
-    width: 60px;
-    height: 60px;
+    margin-right: 15px;
+    width: 65px;
+    height: 65px;
   }
   
   & .article-box {
@@ -254,104 +269,79 @@ h1 {
       }
     }
   }  
-
 }
+
 
 /* -- Article Detail -- */
 
-.article-detail {
+.article-section {
   margin-top: 20px;
+  
+  & .article-items {
+    text-align: left;
+    margin-bottom: 10px;
+
+    & .date {
+      color: var(--dark-ascent);
+    }
+  }
+
+  & h3 {
+    font-size: 2rem;
+  }
+  
+  & .subtitle {
+    font-size: 1.5rem;
+    
+    & span{
+      margin-right: 0.5em;
+    }
+  }
+  
+  & img {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  & .content {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    line-height: 1.6em;
+    margin-bottom: 20px;
+  }
+  
+  & .like {
+    font-size: 1.5rem;
+    
+    & span {
+      margin-right: 0.5em;
+      
+      &.num {
+        color: var(--dark-ascent);
+      }
+    }
+
+    
+    & button {
+      margin-right: 10px;
+    }
+  }
 }
 
-.article-detail h3 {
-  font-size: 18px;
-}
-
-.article-detail img {
-  width: 80%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.article-detail .detail-item {
-  text-align: left;
-  margin-bottom: 10px;
-}
-
-.article-detail .subtitle {
-  display: flex;
-  font-size: 15px;
-}
-
-.subtitle .flex-box{
-  margin-right: 0.5em;
-}
-
-.detail-item.content {
-  line-height: 1.4em;
-  font-size: 17px;
-  margin-bottom: 20px;
-}
-
-.article-detail .like {
-  font-size: 15px;
-}
-
-.like button {
-  margin-right: 10px;
-  padding: 5px;
-  border: 0.5px solid;
-  border-radius: 10px;
-}
-
-.like .like-box {
-  margin-right: 10px;
-}
-
-.tooltip {
-  position: relative;
-  display: inline-block;
-  cursor: help;
-}
-
-/* Tooltip text */
-.tooltip .tooltip-text {
-  visibility: hidden;
-  width: 250px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.6);
-  text-align: left;
-  font-size: 14px;
-  padding: 5px;
-  border: white solid 1px;
-  border-radius: 5px;
- 
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  top: -1em;
-  left: 1em;
-  z-index: 1;
-}
-
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltip-text {
-  visibility: visible;
-}
 
 /* -- Comment Section -- */
 
-.comment-header {
+.comment-section h4 {
+  font-size: 1.6rem;
   text-align: left;
   margin-bottom: 20px;
 }
 
 .comment-form {
-  border: 0.5px grey solid;
-  border-radius: 10px;
-  padding: 10px 10px 10px 20px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -361,17 +351,18 @@ h1 {
   align-items: flex-end;
 }
 
-.comment-input {
+.comment-form textarea {
   flex-grow: 1;
-  padding: 5px;
+  padding: 1em;
   box-sizing: border-box;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 8px;
 }
 
 .comment-button {
   margin-left: 10px;
   padding: 0.5em 1em;
-  border: 0.5px solid;
-  border-radius: 10px;
 }
 
 .comment-form .tooltip {
@@ -390,57 +381,56 @@ h1 {
   margin-left: 0;
   margin-right: auto;
   width: max(90%, 280px);
+  
+  & .subtitle {
+    & span {
+      display: inline-block;
+      font-size: 1.4rem;
+    }
+  
+    & .author {
+      font-weight: bold;
+      padding: 0.5em;
+    }
+
+    & .date {
+      color: var(--dark-ascent);
+    }
+  } 
+  
+  & .content {
+    text-align: left;
+    /* border: 0.5px gray solid; */
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 8px;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+    padding-inline: 20px;
+    font-size: 16px;
+
+    & p {
+      flex-grow: 1;
+      margin: auto;
+    }
+  }
 }
 
 .comment-card.me {
   align-items: flex-end;
   margin-right: 0;
   margin-left: auto;
+  
+  & .content {
+    padding-right: 10px;
+  }
+  
+  & button {
+    padding: 5px 10px;
+  }
 }
 
-.comment-box span {
-  display: inline-block;
-  font-size: 14px;
-}
-
-.comment-box .author {
-  font-weight: bold;
-  padding: 0.5em;
-}
-
-.comment-box.content {
-  text-align: left;
-  border: 0.5px gray solid;
-  border-radius: 20px;
-  display: flex;
-  align-items: flex-end;
-  padding: 10px;
-  padding-inline: 20px;
-  font-size: 16px;
-}
-
-.comment-card.me .content {
-  padding-right: 10px;
-}
-
-.comment-content p {
-  flex-grow: 1;
-  margin: auto;
-}
-
-.comment-box .comment-button {
-  padding: 5px 10px;
-}
-
-.comment-card.me .tooltip {
-  display: block;
-  /* text-align: left; */
-  margin-left: 5px;
-}
-
-.comment-card.me .tooltip-text {
-  width: 250px;
-  left: -251px;}
 
 /* --- Reponsive Webpage --- */
 
@@ -448,16 +438,10 @@ h1 {
 @media only screen and (max-width: 426px) {
   
   .article-detail {
-    & h3 {
-      font-size: 18px;
-    }
-
     & .content {
-      font-size: 16px;
-      line-height: 1.2em;
+      font-size: 1.7rem;
     }
   }
-
 }
 
 /* Small devices (portrait tablets and large phones, 768px and up) */
@@ -502,13 +486,14 @@ h1 {
 /* --- Modal --- */
 
 .modal-header {
+  font-size: 1.8rem;
   text-align: left;
   padding-bottom: 20px;
   border-bottom: 0.5px solid;
 }
 
 .modal-message {
+  font-size: 1.6rem;
   padding-top: 20px;
   text-align: center;
-  font-size: 16px;
 }

@@ -58,19 +58,21 @@ function ArticleDetail() {
     <div className="article-detail grid">
       <section className="article-section">
 
-        <h3 className="detail-item">{article.title}</h3>
-        <p className="detail-item subtitle">
-          <span className="flex-box"><b>{article.author}</b></span>
-          <span className="flex-box">{new Date(article.created_at).toDateString()}</span>
+        <h3 className="article-items">{article.title}</h3>
+        <p className="article-items subtitle flex">
+          <span><b>{article.author}</b></span>
+          <span class="date">{new Date(article.created_at).toDateString()}</span>
         </p>
 
         <img src={article.article_img_url} alt={article.title} />
-        <p className="detail-item content">{article.body}</p>
+        <p className="article-items content">{article.body}</p>
 
-        <div className="detail-item like">
-          <button className="like-box" onClick={handleVote}>{voted?<p>❤️</p>:<p>🤍</p>}</button> 
-          <span className="like-box"><b>{article.votes}</b> likes</span>
-          <span className="like-box"><b>{article.comment_count}</b> comments</span>
+        <div className="article-items like">
+          <button onClick={handleVote}>{voted?<p>❤️</p>:<p>🤍</p>}</button> 
+          <span class="num"><b>{article.votes}</b></span>
+          <span class="desc">likes</span>
+          <span class="num"><b>{article.comment_count}</b></span>
+          <span class="desc">comments</span>
         </div>
 
         <InfoModal 

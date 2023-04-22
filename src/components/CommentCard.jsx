@@ -22,8 +22,8 @@ function CommentCard({ comment, setComments, setModalOpen }) {
 
   if (comment.author === user.username) {
     return (
-      <div className="comment-card me">
-        <div className="comment-box">
+      <div className="comment-card me flex">
+        <div className="subtitle">
           <span className="author">me</span>
           <span className="date">
             {comment.created_at
@@ -31,10 +31,9 @@ function CommentCard({ comment, setComments, setModalOpen }) {
               : "just now"}
           </span>
         </div>
-        <div className="comment-box content">
+        <div className="content">
           <p>{comment.body}</p>
           <button
-            className="comment-button"
             onClick={handleClick}
             disabled={comment.comment_id === undefined}
           >
@@ -45,14 +44,14 @@ function CommentCard({ comment, setComments, setModalOpen }) {
     );
   } else {
     return (
-      <div className="comment-card">
-        <div className="comment-box">
+      <div className="comment-card flex">
+        <div className="subtitle">
           <span className="author">{comment.author}</span>
           <span className="date">
             {new Date(comment.created_at).toDateString()}
           </span>
         </div>
-        <p className="comment-box content">{comment.body}</p>
+        <p className="content">{comment.body}</p>
       </div>
     );
   }

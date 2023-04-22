@@ -59,7 +59,7 @@ function CommentForm({ article_id, setComments }) {
       <form onSubmit={handleSubmit}>
         <textarea
           className="comment-input"
-          placeholder="say something ..."
+          placeholder="What are you thoughts?"
           onChange={handleChange}
           value={comment}
           rows={4}
