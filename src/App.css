@@ -98,7 +98,7 @@ a:active {
 
 .loading-items {
   margin-bottom: 10px;
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 
 img.loading-items  {
@@ -198,7 +198,6 @@ h1 {
   
   
   & .menu-items.selected {
-    padding-inline: 10px;
     background-color: var(--dark-ascent);
     color: var(--light-shades);
     ;
@@ -406,9 +405,9 @@ h1 {
     box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 8px;
     display: flex;
     align-items: flex-end;
-    padding: 10px;
-    padding-inline: 20px;
-    font-size: 16px;
+    padding: 1em;
+    padding-inline: 1em;
+    font-size: 1.6rem;
 
     & p {
       flex-grow: 1;
@@ -422,8 +421,8 @@ h1 {
   margin-right: 0;
   margin-left: auto;
   
-  & .content {
-    padding-right: 10px;
+  & .content p {
+    padding-right: 1em;
   }
   
   & button {
