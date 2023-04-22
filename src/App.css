@@ -3,10 +3,10 @@
   --san-serif: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --serif: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
   --light-shades: #FAF9F9;
-  --light-ascent: #69817D;
-  --brand-color: #313640;
-  --dark-ascent: #4A687D;
-  --dark-shades: #21172B;
+  --light-ascent: #A5998B;
+  --brand-color: #E09539;
+  --dark-ascent: #C74846;
+  --dark-shades: #313344;
   background-color: var(--dark-shades);
 }
 
@@ -117,7 +117,7 @@ img.loading-items  {
 
 button {
   cursor:  pointer ;
-  background-color: var(--light-ascent);
+  background-color: var(--brand-color);
   color: var(--light-shades);
   font-weight: bold;
   border: 0;
@@ -193,12 +193,12 @@ h1 {
   & .menu-items {
     display: inline-block;
     padding: 0.5rem;
-    color: var(--dark-ascent);
+    color: var(--light-ascent);
   }
   
   
   & .menu-items.selected {
-    background-color: var(--dark-ascent);
+    background-color: var(--light-ascent);
     color: var(--light-shades);
     ;
   }
@@ -256,7 +256,7 @@ h1 {
     
     & h3 {
       font-size: 1.6rem;
-      color: var(--dark-ascent);
+      color: var(--light-ascent);
     }
     
     & .subtitle {
@@ -280,7 +280,7 @@ h1 {
     margin-bottom: 10px;
 
     & .date {
-      color: var(--dark-ascent);
+      color: var(--light-ascent);
     }
   }
 
@@ -326,6 +326,8 @@ h1 {
     
     & button {
       margin-right: 10px;
+      background-color: gainsboro;
+      color: gray;  
     }
   }
 }
@@ -360,13 +362,9 @@ h1 {
 
 .comment-button {
   margin-left: 10px;
-  padding: 0.5em 1em;
+  padding: 0.8em 1em;
 }
 
-.comment-form .tooltip {
-  display: block;
-  text-align: left;
-}
 
 /* -- Comment List -- */
 
@@ -392,7 +390,7 @@ h1 {
     }
 
     & .date {
-      color: var(--dark-ascent);
+      color: var(--light-ascent);
     }
   } 
   
@@ -423,6 +421,8 @@ h1 {
   }
   
   & button {
+    background-color: gainsboro;
+    color: gray;
     padding: 5px 10px;
   }
 }
