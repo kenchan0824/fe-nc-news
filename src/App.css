@@ -409,10 +409,6 @@ h1 {
     padding-inline: 1em;
     font-size: 1.6rem;
 
-    & p {
-      flex-grow: 1;
-      margin: auto;
-    }
   }
 }
 
@@ -422,7 +418,9 @@ h1 {
   margin-left: auto;
   
   & .content p {
-    padding-right: 1em;
+    flex-grow: 1;
+    margin: auto;
+    margin-right: 1em;
   }
   
   & button {
@@ -436,7 +434,7 @@ h1 {
 /* Extra small devices (phones, 426px and down) */
 @media only screen and (max-width: 426px) {
   
-  .article-detail {
+  .article-section {
     & .content {
       font-size: 1.7rem;
     }

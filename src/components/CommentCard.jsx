@@ -51,7 +51,7 @@ function CommentCard({ comment, setComments, setModalOpen }) {
             {new Date(comment.created_at).toDateString()}
           </span>
         </div>
-        <p className="content">{comment.body}</p>
+        <div className="content">{comment.body}</div>
       </div>
     );
   }
