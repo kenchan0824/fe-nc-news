@@ -433,6 +433,10 @@ h1 {
 /* Extra small devices (phones, 426px and down) */
 @media only screen and (max-width: 426px) {
   
+  .app-container {
+    padding: 15px;
+  }
+
   .article-section {
     & .content {
       font-size: 1.7rem;
