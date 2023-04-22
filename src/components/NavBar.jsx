@@ -21,9 +21,9 @@ function NavBar() {
   }, [pathname]);  
   
   const homeItem = currTopic === "" ?
-    <span className="menu-item selected">home</span>
+    <span className="menu-items selected">home</span>
   : (
-    <Link className="menu-item" to="/" onClick={() => setCurrTopic("")}>
+    <Link className="menu-items" to="/" onClick={() => setCurrTopic("")}>
       home
     </Link>
   );
@@ -31,12 +31,12 @@ function NavBar() {
   const topicItems = allTopics.map((topic) => {
     return (
       <span key={topic.slug}>
-        <span className="menu-item">|</span>
+        <span className="menu-items">|</span>
         {currTopic === topic.slug ? (
-          <span className="menu-item selected">{topic.slug}</span>
+          <span className="menu-items selected">{topic.slug}</span>
         ) : (
           <Link
-            className="menu-item"
+            className="menu-items"
             to={`/topics/${topic.slug}/articles`}
           >
             {topic.slug}
@@ -47,7 +47,7 @@ function NavBar() {
   });
 
   const homeBar = (
-    <div className="nav-menu">
+    <div className="nav-menu flex">
       {homeItem}
       {topicItems}
     </div>
@@ -55,8 +55,8 @@ function NavBar() {
 
   const backTo = currTopic === "" ? "/" : `/topics/${currTopic}/articles`;
   const backBar = (
-    <div className="nav-menu back">
-      <Link className="menu-item" to={backTo}>
+    <div className="nav-menu back flex">
+      <Link className="menu-items" to={backTo}>
         &lt; back
       </Link>
     </div>

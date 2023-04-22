@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <div className="app-container">
-        <div className="banner">
+        <div className="banner flex">
           <Header />
           <UserProfile />
         </div>

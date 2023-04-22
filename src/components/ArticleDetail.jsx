@@ -55,8 +55,8 @@ function ArticleDetail() {
   }
   
   return (
-    <div className="article-detail grid-container">
-      <section className="article-section grid-item">
+    <div className="article-detail grid">
+      <section className="article-section">
 
         <h3 className="detail-item">{article.title}</h3>
         <p className="detail-item subtitle">

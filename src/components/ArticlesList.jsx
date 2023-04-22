@@ -48,13 +48,13 @@ function ArticleList() {
   }
   
   return (
-    <div className="article-list grid-container">
-      <div className="control-bar grid-item">
-        <label className="control-item" htmlFor="sortBy">sort by</label>
-        <select className="control-item" id="sortBy" value={sort.sortBy} onChange={handleChange}>
+    <div className="article-list grid">
+      <div className="control-bar">
+        <label className="control-items" htmlFor="sortBy">sort by</label>
+        <select className="control-items" id="sortBy" value={sort.sortBy} onChange={handleChange}>
           <option value="created_at">date</option>
           <option value="votes">likes</option>
-          <option value="comment_count">comments</option>
+          <option value="comment_counts">comments</option>
           <option value="author">author</option>
         </select>
         <select className="control-item" id="order" value={sort.order} onChange={handleChange}>

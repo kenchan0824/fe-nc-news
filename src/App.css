@@ -1,11 +1,19 @@
+:root {
+  font-size: 62.5%;
+  --san-serif: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --serif: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+  --light-shades: #FAF9F9;
+  --light-ascent: #69817D;
+  --brand-color: #313640;
+  --dark-ascent: #4A687D;
+  --dark-shades: #21172B;
+  background-color: var(--dark-ascent);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-}
-
-html {
-  background-color: lightgray;
 }
 
 .App {
@@ -50,10 +58,13 @@ html {
 }
 
 /* --- Custom --- */
+
 .app-container {
   padding: 20px;
-  background-color: white;
+  background-color: var(--light-shades);
   min-height: 1180px;
+  font-family: var(--san-serif);
+  color: var(--dark-shades);
 }
 
 a:link {
@@ -70,10 +81,6 @@ a:hover {
 
 a:active {
   text-decoration: none;
-}
-
-p {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .error {
@@ -98,42 +105,60 @@ img.loading-items  {
   height: 50px;
 }
 
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
 /* -- Header -- */
 
 .banner {
-  display: flex;
   align-items: center;
-}
-
-.user-profile {
-  flex-grow: 1;
-  display: flex;
-  margin-bottom: 10px;
-}
-
-.user-box {
-  margin-left: 10px;
-  text-align:right;
-}
-
-.user-box.dummy {
-  flex-grow: 1;  
-}
-
-.user-box.welcome {
-  font-size: 14px;
-  text-align: left;
-}
-
-.user-box img {
-  width: 40px;
 }
 
 h1 {
   margin-bottom: 10px;
-  font-size: 1.4rem;
   text-align: left;
+  font-size: 2.2rem;
+  color: var(--brand-color);
+  font-family: var(--serif);
 }
+
+.user-profile {
+  flex-grow: 1;
+  margin-bottom: 10px;
+  
+  & > div {
+    text-align:right;
+  }  
+  
+  & .dummy {
+    flex-grow: 1;  
+  }  
+  
+  & .welcome {
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  & .username {
+    font-size: 1.4rem;
+    text-align: left;
+    color: var(--light-ascent);
+  }
+
+  & img {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+  }  
+
+}    
 
 /* --- Nav Bar --- */
 
@@ -141,41 +166,38 @@ h1 {
   margin-top: 10px;
   margin-bottom: 20px;
   text-align: left;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: bold;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
+  border-top: 1px var(--dark-shades) solid;
+  border-bottom: 1px var(--dark-shades) solid;
 }
 
 .nav-menu {
   text-align: center;
-  display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  
+  & .menu-items {
+    display: inline-block;
+    padding: 0.5rem;
+    color: var(--dark-ascent);
+  }
+  
+  
+  & .menu-items.selected {
+    padding-inline: 10px;
+    background-color: var(--dark-ascent);
+    color: var(--light-shades);
+    ;
+  }
 }
 
 .nav-menu.back {
   justify-content: flex-start;
-}
-
-.nav-menu .menu-item {
-  display: inline-block;
-  padding-inline: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.nav-menu.back .menu-item {
-  padding-left: 0;
-}
-
-.nav-menu .menu-item.selected {
-  /* color: orange;
-  font-weight: bold; */
-  padding-inline: 10px;
-  background-color: black;
-  color: white;
-  ;
+  
+  & span {
+    padding-left: 0;
+  }
 }
 
 /* -- Article List -- */
@@ -183,16 +205,16 @@ h1 {
 .control-bar {
   text-align: right;
   margin-bottom: 10px;
-}
-
-.control-bar .control-item {
-  font-size: 14px;
-  margin-inline: 2px;
-}
-
-.control-bar label.control-item {
-  font-weight: bold;
-  margin-left: 10px;
+  
+  & .control-items {
+    font-size: 1.4rem;
+    margin-inline: 0.2em;
+  }
+  
+  & label.control-items {
+    font-weight: bold;
+    color: var(--light-ascent);
+  }
 }
 
 .article-list {
@@ -200,49 +222,44 @@ h1 {
 }
 
 .article-card {
-  display: flex;
   align-items: flex-start;
-}
+  
+  & img {
+    margin-right: 20px;
+    width: 60px;
+    height: 60px;
+  }
+  
+  & .article-box {
+    text-align: left;
+    width: auto;
+  
+    & .article-items {
+      margin-bottom: 5px;
+      display: block;
+      justify-content: left;
+    }
+    
+    & h3 {
+      font-size: 1.6rem;
+      color: var(--dark-ascent);
+    }
+    
+    & .subtitle {
+      font-size: 1.4rem;
+      
+      & span {
+        display: inline-block;
+        margin-right: 0.5em;
+      }
+    }
+  }  
 
-.article-card img {
-  margin-right: 20px;
-  width: 80px;
-  height: 80px;
-}
-
-.article-card .article-box {
-  text-align: left;
-  width: auto;
-}
-
-.article-box .article-item {
-  margin-bottom: 5px;
-  display: block;
-  justify-content: left;
-}
-
-.article-box h3 {
-  font-size: 14px;
-}
-
-.article-box .subtitle {
-  font-size: 12px;
-}
-
-.subtitle span {
-  display: inline-block;
-  margin-right: 0.5em;
-}
-
-.like span {
-  display: inline-block;
-  margin-right: 1em;
 }
 
 /* -- Article Detail -- */
 
 .article-detail {
-  display: block;
   margin-top: 20px;
 }
 
@@ -427,21 +444,20 @@ h1 {
 
 /* --- Reponsive Webpage --- */
 
-.grid-container {
-  display: grid;
-  gap: 20px;
-}
-
 /* Extra small devices (phones, 426px and down) */
 @media only screen and (max-width: 426px) {
-  .article-detail h3 {
-    font-size: 18px;
+  
+  .article-detail {
+    & h3 {
+      font-size: 18px;
+    }
+
+    & .content {
+      font-size: 16px;
+      line-height: 1.2em;
+    }
   }
 
-  .article-detail .content {
-    font-size: 16px;
-    line-height: 1.2em;
-  }
 }
 
 /* Small devices (portrait tablets and large phones, 768px and up) */
@@ -450,15 +466,13 @@ h1 {
     max-width: 680px;
   }
 
-  .article-list.grid-container {
+  .article-list {
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
 
-  .control-bar.grid-item {
-    grid-column: span 2;
+    & .control-bar {
+      grid-column: span 2;
+    }
   }
-
 }
 
 /* Extra large devices (large laptops and desktops, 1024px and up) */
@@ -467,26 +481,26 @@ h1 {
     max-width: 1024px;
   }
 
-  .article-list.grid-container {
+  .article-list {
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-  }
 
-  .control-bar.grid-item {
-    grid-column: span 3;
+    & .control-bar {
+      grid-column: span 3;
+    }
   }
   
-  .article-detail.grid-container {
+  .article-detail {
     grid-template-columns: 60% auto;
-  }
-
-  .article-section.grid-item {
-    padding-right: 20px;
-    border-right: 0.5px solid;
+    
+    & .article-section {
+      padding-right: 20px;
+      border-right: 0.5px solid;
+    }
   }
 }
 
 /* --- Modal --- */
+
 .modal-header {
   text-align: left;
   padding-bottom: 20px;

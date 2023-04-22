@@ -5,15 +5,13 @@ function UserProfile() {
   const { user } = useContext(UserContext);
 
   return (
-    <div className="user-profile">
-      <div className="user-box dummy"></div>
-      <div className="user-box welcome">
-        <div>
-          <b>Welcome</b>
-        </div>
-        <div>{user.name}!</div>
+    <div className="user-profile flex">
+      <div className="dummy"></div>
+      <div>
+        <div className="welcome">Welcome</div>
+        <div className="username">{user.name}!</div>
       </div>
-      <div className="user-box">
+      <div>
         <img src={user.avatar_url} alt={user.name} />
       </div>
     </div>
