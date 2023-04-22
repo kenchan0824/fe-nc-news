@@ -3,7 +3,7 @@
   --san-serif: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --serif: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
   --light-shades: #F3F1F4;
-  --dark-ascent: #B59674;
+  --dark-ascent: #B37DA5;
   --brand-color: #4A687D;
   --dark-ascent: #AC4258;
   --dark-shades: #2A2A32;
@@ -243,15 +243,15 @@ h1 {
 }
 
 /* -- Article Detail -- */
+.article-section h3 {
+  font-size: 2rem;
+}
 .article-section .article-items {
   text-align: left;
   margin-bottom: 10px;
 }
 .article-section .article-items .date {
   color: var(--dark-ascent);
-}
-.article-section h3 {
-  font-size: 2rem;
 }
 .article-section .subtitle {
   font-size: 1.5rem;
@@ -291,6 +291,7 @@ h1 {
 /* -- Comment Section -- */
 .comment-section h4 {
   font-size: 1.6rem;
+  color: var(--brand-color);
   text-align: left;
   margin-bottom: 20px;
 }
@@ -331,7 +332,7 @@ h1 {
   width: max(90%, 280px);
 }
 .comment-card .subtitle {
-  margin-bottom: 0.8em;
+  margin-bottom: 0.5em;
 }
 .comment-card .subtitle span {
   display: inline-block;
