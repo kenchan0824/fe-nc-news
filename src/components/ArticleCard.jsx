@@ -13,8 +13,8 @@ function ArticleCard({ article }) {
           <span className="datetime">{new Date(article.created_at).toDateString()}</span>
         </p>
         <div className="article-items subtitle">
+          <span>❤️ <b>{article.votes}</b> likes </span>
           <span><b>{article.comment_count}</b> comments</span>
-          <span>❤️ {article.votes}</span>
         </div>
       </div>
     </section>

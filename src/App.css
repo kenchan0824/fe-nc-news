@@ -205,7 +205,7 @@ h1 {
 }
 .control-bar label.control-items {
   font-weight: bold;
-  color: var(--dark-ascent);
+  color: var(--brand-color);
 }
 
 .article-list {
@@ -371,7 +371,7 @@ h1 {
 .comment-card.me button {
   background-color: gainsboro;
   color: gray;
-  padding: 5px 10px;
+  padding: 5px 8px;
 }
 
 /* --- Reponsive Webpage --- */
