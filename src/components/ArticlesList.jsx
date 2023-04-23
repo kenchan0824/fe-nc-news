@@ -54,7 +54,7 @@ function ArticleList() {
         <select className="control-items" id="sortBy" value={sort.sortBy} onChange={handleChange}>
           <option value="created_at">date</option>
           <option value="votes">likes</option>
-          <option value="comment_counts">comments</option>
+          <option value="comment_count">comments</option>
           <option value="author">author</option>
         </select>
         <select className="control-item" id="order" value={sort.order} onChange={handleChange}>
